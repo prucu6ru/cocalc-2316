@@ -1,0 +1,2212 @@
+% specify 12pt font in the settings for your document class
+\documentclass[12pt]{article}
+
+\usepackage{october}
+% \usepackage{lineno}
+\begin{document}
+% \setpagewiselinenumbers
+% \modulolinenumbers[5]
+% \linenumbers
+
+\title{Supplement for Mathematics Texts}
+\author{Stefan Lukits}
+% \date{}
+\maketitle
+% \newcounter{expls}
+
+\maketitle
+
+\tableofcontents
+
+\newpage
+
+\section{Legendre Duality and Convex Conjugates}
+\label{section:eiphaiwu}
+
+% Here is the reason why this is useless for scoring rules. In early
+% 2018, I assumed that the fact that only
+% $F(x)=0.5\langle{}x,x\rangle$ is properly self-dual, ie.\
+% $F(x)=F^{\ast}$ on some non-empty convex set, would give me
+% $D_{H}(x,y)=D_{H}(y,x)\Rightarrow{}S(\xi_{i},x)=m(2x_{i}-1-\sum{}x_{j}^{2}$.
+% The hope was that the Brier score's entropy would be self-dual in
+% some sense. However, an entropy function by McCarthy's Theorem is
+% always 1-homogeneous, and the formula in Jean B. Lasserre's paper
+% ``Homogeneous Functions and Conjugacy'' clearly indicates that of
+% homogeneous functions, ONLY 2-homogeneous functions can be
+% self-dual, and ALL 1-homogeneous functions have trivial complex
+% conjugates of the form $F^{\ast}=\infty$. This means that the theory
+% of complex conjugates is not applicable to entropy functions for
+% scoring rules. Months of work crashing down on me on July 19, 2018.
+
+I will provide an original new proof for this theorem (there are more
+conventional proofs in \scite{8}{savage71}{788}; and
+\scite{7}{selten98}{}, section 4). My proof gives the reader a brief
+introduction to convex conjugates, which may in many other respects be
+a fruitful mathematical tool dealing with scoring rules, entropy
+functions, and divergence functions. Let $\mathcal{P}$ be the set of
+probability distributions over a trichotomy-type $n+1$-dimensional
+outcome space. $x\in\mathcal{P}$ can be represented by the
+probabilities $x_{0},{\ldots},x_{n}$ or by the vector
+$x=(x_{1},{\ldots},x_{n})^{\intercal}\in\mathbb{R}^{n}$ with the usual
+restrictions on probabilities. If the latter is the case, which will
+be true for the rest of this subsection, then $x_{0}=1-\sum{}x_{i}$.
+
+This differs in notation from the rest of the paper; and so does my
+assumption for the rest of the subsection that $S$ is a reward (rather
+than a loss) function. The reason for the inconsistency of convention
+is that I will use a fair amount of convex analysis in this
+subsection. The entropy functions for loss scores are concave. All
+theorems of convex analysis are valid for concave functions just as
+much as for convex functions, but in convex analysis, for obvious
+reasons (to align convex sets with convex functions), the convention
+is to use convex functions.
+
+\begin{definition}
+  \label{def:ongiepee}
+  A function $f:T\rightarrow\mathbb{R}$, where $T$ is a convex subset
+  of $\mathbb{R}^{n}$, is convex if its epigraph is a convex set.
+\end{definition}
+
+The epigraph $\mbox{epi}(f)$ is defined as
+$\{(x,\mu)\in{}T\times\mathbb{R}\,\vert\,\mu\geq{}f(x)\}$. The more
+conventional definition of convexity is that for $0<\lambda<1$,
+\begin{equation}
+  \label{eq:iamahquo}
+  f(\lambda{}x+(1-\lambda)y)\leq\lambda{}f(x)+(1-\lambda)f(y)\mbox{ for all }x,y\in{}T.
+\end{equation}
+Theorem 4.1 in \scite{8}{rockafellar97}{25}, shows these two
+definitions of convex functions to be equivalent.
+
+The reward function
+$S_{\mbox{\tiny LS}}:\mathbb{R}^{n}\rightarrow\mathbb{R}^{n+1}$ for the Log
+score is
+% \begin{equation}
+%   \label{eq:quahkeev}
+%   S_{\mbox{\tiny LS}}(x)=\left(\ln{}x_{i}\right)_{i=1,{\ldots},n}^{\intercal}
+% \end{equation}
+\begin{equation}
+  \label{eq:quahkeev}
+  S_{\mbox{\tiny LS}}(x)=\left(\ln\left(1-\sum{}x_{i}\right),\ln{}x_{1},{\ldots},\ln{}x_{n}\right)^{\intercal}
+\end{equation}
+and the entropy function is
+\begin{equation}
+  \label{eq:eeceetie}
+  H_{\mbox{\tiny LS}}(x)=-\sum_{i=1}^{n}x_{i}\ln{}x_{i}-\left(1-\sum_{i=1}^{n}x_{i}\right)\ln\left(1-\sum_{i=1}^{n}x_{i}\right).
+\end{equation}
+I will use {\quations}~(\ref{eq:quahkeev}) and (\ref{eq:eeceetie}) to
+illustrate convex conjugates.
+
+Let the entropy function $H$ for the scoring rules under consideration
+be a twice differentiable, strictly convex function on $\mathcal{P}$.
+For the remainder of this subsection, I will assume commutativity of
+the inner product and leave aside technicalities about the inner
+product between dual spaces.
+
+\begin{definition}
+  \label{def:paegoozi}
+  The convex conjugate
+  $H^{\ast}:\mathcal{P}^{\ast}\rightarrow\mathbb{R}$ is defined on
+\begin{equation}
+  \label{eq:osaenise}
+\mathcal{P}^{\ast}=\{x^{\ast}\in\mathbb{R}^{n}\,\vert\,\nabla{}H(x)=x^{\ast},x\in\mathcal{P}\}
+\end{equation}
+by
+\begin{equation}
+  \label{eq:veebuave}
+  H^{\ast}(x^{\ast})=\sup_{x\in\mathcal{P}}\left\{\langle{}x,x^{\ast}\rangle-H(x)\right\}.
+\end{equation}
+\end{definition}
+
+Based on the strict convexity and differentiability of $H$,
+$\mathcal{P}$ and $\mathcal{P}^{\ast}$ are dual spaces and
+\begin{equation}
+  \label{eq:phavuugi}
+  H^{\ast}(x^{\ast})=\langle{}x,x^{\ast}\rangle-H(x)
+\end{equation}
+where $x$ is the dual element corresponding to $x^{\ast}$, i.e.\
+$\nabla{}H(x)=x^{\ast}$ and the supremum in (\ref{eq:veebuave}) is a
+maximum, if it exists.
+
+Convex conjugates induce the so-called Legendre-Fenchel duality
+between convex differentiable functions on $\mathcal{P}$ and
+$\mathcal{P}^{\ast}$. 
+
+% It can be shown that $H^{\ast\ast}=H$. Section
+% 12 of R. Tyrrell Rockafellar's book \emph{Convex Analysis} has the
+% details. 
+
+{\Emmas}~\ref{lma:kengohja}, \ref{lma:pudiubao}, and
+\ref{lma:piangodi} are adapted from section 12 of R. Tyrrell
+Rockafellar's book \emph{Convex Analysis}.
+
+\begin{lemma}
+  \label{lma:kengohja}
+    $H^{\ast\ast}=H$.
+\end{lemma}
+
+\begin{proof}
+  \label{prf:pivailah}
+  First, I will show that $H^{\ast}$ is convex, otherwise duality
+  cannot be maintained because $x$ would no longer have a unique dual
+  element $x^{\ast}$. The definition of $H^{\ast}$ immediately
+  suggests that
+  \begin{equation}
+    \label{eq:phuuquoo}
+    H^{\ast}(x^{\ast})=\sup_{(x,\mu)\in\mbox{\scriptsize epi}(H)}\{\langle{}x,x^{\ast}\rangle-\mu\}
+  \end{equation}
+  Therefore,
+  \begin{equation}
+    \label{eq:reicedik}
+    \mbox{epi}(H^{\ast})=\{(x^{\ast},\nu)\,\vert\,\nu\geq\sup_{(x,\mu)\in\mbox{\scriptsize epi}(H)}\{\langle{}x,x^{\ast}\rangle-\mu\}
+  \end{equation}
+Let $(x_{1}^{\ast},\nu_{1})$ and $(x_{2}^{\ast},\nu_{2})$ be elements
+of $\mbox{epi}(H^{\ast})$. Then
+$(\lambda{}x_{1}^{\ast}+(1-\lambda)x_{2}^{\ast},\lambda\nu_{1}+(1-\lambda)\nu_{2})$
+is also an element of $\mbox{epi}(H^{\ast})$ because for fixed
+$x_{1}^{\ast},x_{2}^{\ast},\nu_{1},\nu_{2}$,and $0<\lambda<1$
+\begin{equation}
+  \label{eq:saedeeva}
+  \begin{split}
+  & \lambda\nu_{1}+(1-\lambda)\nu_{2}\geq\lambda\sup_{(x,\mu)\in\mbox{\scriptsize epi}(H)}\{\langle{}x,x_{1}^{\ast}\rangle-\mu\}+(1-\lambda)\sup_{(x,\mu)\in\mbox{\scriptsize epi}(H)}\{\langle{}x,x_{2}^{\ast}\rangle-\mu\}\geq \\
+  & \sup_{(x,\mu)\in\mbox{\scriptsize epi}(H)}\{\lambda(\langle{}x,x_{1}^{\ast}\rangle-\mu)+(1-\lambda)(\langle{}x,x_{2}^{\ast}\rangle-\mu)\}= \\
+  & \sup_{(x,\mu)\in\mbox{\scriptsize epi}(H)}\{\langle{}x,\lambda{}x_{1}^{\ast}+(1-\lambda)x_{2}^{\ast}\rangle-\mu\}
+  \end{split}
+\end{equation}
+This establishes convexity for $H^{\ast}$. Consider
+\begin{equation}
+  \label{eq:deluuqua}
+  \sup_{(x^{\ast},\nu)\in\mbox{\scriptsize epi}(H^{\ast})}\{\langle{}x,x^{\ast}\rangle-\nu\}
+\end{equation}
+On the one hand, (\ref{eq:deluuqua}) is $H^{\ast\ast}(x)$ by
+definition. On the other hand, it is
+\begin{equation}
+  \label{eq:geifahve}
+  \sup_{x^{\ast}\in\mathcal{P}^{\ast}}\{\langle{}x,x^{\ast}\rangle-H^{\ast}(x^{\ast})\}=\sup_{x^{\ast}\in\mathcal{P}^{\ast}}\left\{\langle{}x,x^{\ast}\rangle-\sup_{\xi\in\mathcal{P}}\{\langle\xi,x^{\ast}\rangle-H(\xi)\}\right\}
+\end{equation}
+The inside supremum is achieved where $\nabla{}H(\xi)=x^{\ast}$
+because $H$ is differentiable. Differentiate
+$\langle{}x-\xi,\nabla{}H(\xi)\rangle+H(\xi)$, using the product rule
+for the inner product, to see that the outside supremum is achieved
+where $\nabla{}H(x)=x^{\ast}$. The convexity of $H$ demands that
+$x=\xi$, and it is therefore established that (\ref{eq:deluuqua}) is
+not only $H^{\ast\ast}(x)$, but also $H(x)$, so $H^{\ast\ast}=H$.
+\end{proof}
+
+\begin{lemma}
+  \label{lma:pudiubao}
+  Taking conjugates reverses functional inequalities:
+  $f_{1}\leq{}f_{2}$ implies $f_{1}^{\ast}\geq{}f_{2}^{\ast}$. 
+\end{lemma}
+\begin{proof}
+  \label{prf:aibaelee}
+  A real-valued function $f_{2}$ is greater or equal to another
+  real-valued function $f_{1}$ on a common domain if on that common
+  domain $f_{1}(x)\leq{}f_{2}(x)$. Let $f_{1}\leq{}f_{2}$. Then
+  \begin{equation}
+    \label{eq:zeewooje}
+    f_{2}^{\ast}(x^{\ast})=\sup_{x\in\mathcal{P}}\{\langle{}x,x^{\ast}\rangle-f_{2}(x)\}\leq\sup_{x\in\mathcal{P}}\{\langle{}x,x^{\ast}\rangle-f_{1}(x)\}=f_{1}^{\ast}(x^{\ast})
+  \end{equation}
+for all $x^{\ast}\in\mathcal{P}^{\ast}$.
+\end{proof}
+
+\begin{lemma}
+  \label{lma:piangodi}
+  $\langle{}x,x^{\ast}\rangle\leq{}f(x)+f^{\ast}(x^{\ast})$ for all
+  $x\in\mathcal{P},x^{\ast}\in\mathcal{P}^{\ast}$ (not necessarily
+  dual elements as above), and any differentiable convex function $f$
+  and its conjugate $f^{\ast}$.
+\end{lemma}
+\begin{proof}
+  \label{prf:mohgeeph}
+Consider for fixed $x,x^{\ast}$
+\begin{equation}
+  \label{eq:poyishoo}
+  f^{\ast}(x^{\ast})=\sup_{\xi\in\mathcal{P}}\{\langle\xi,x^{\ast}\rangle-f(\xi)\}\geq\langle{}x,x^{\ast}\rangle-f(x)
+\end{equation}
+$\langle{}x,x^{\ast}\rangle\leq{}f(x)+f^{\ast}(x^{\ast})$ follows.
+\end{proof}
+
+% The proofs for {\emmas}~\ref{lma:pudiubao} and \ref{lma:piangodi} are in
+% \scite{8}{rockafellar97}{104f}.
+
+The inequality in {\emma}~\ref{lma:piangodi} is called Fenchel's
+inequality.
+
+\begin{lemma}
+  \label{lma:xeemeixo}
+  $\left(\nabla{}H\right)^{-1}=\nabla\left(H^{\ast}\right)$.
+\end{lemma}
+\begin{proof}
+  \label{prf:ezegheop}
+$H$ is a differentiable and strictly convex function on $\mathcal{P}$,
+therefore $\nabla{}H$ exists and is bijective from $\mathcal{P}$ to
+$\mathcal{P}^{\ast}$. Let $(\nabla{}H)^{-1}$ be the inverse function
+of $\nabla{}H$. According to (\ref{eq:phavuugi}), the supremum in
+(\ref{eq:veebuave}) is reached at $\nabla{}H(x)=x^{\ast}$, therefore
+\begin{equation}
+  \label{eq:ohcaezah}
+  H^{\ast}(\nabla{}H(x))=\langle{}x,\nabla{}H(x)\rangle-H(x)
+\end{equation}
+Differentiating (\ref{eq:ohcaezah}) yields
+\begin{equation}
+  \label{eq:uephaele}
+\nabla{}H^{\ast}(\nabla{}H(x))\cdot\nabla^{2}H(x)=\nabla{}H(x)+x\cdot\nabla^{2}H(x)-\nabla{}H(x)
+\end{equation}
+This can only be true if $\nabla{}H^{\ast}\circ\nabla{}H=$id, which
+establishes {\emma}~\ref{lma:xeemeixo}. My proof is based on
+\scite{8}{boissonnatetal10}{287}. Rockafellar treats the topic with greater
+generality, where $H$ need not be differentiable, see his Theorem 23.5
+on page 218 and his Theorem 26.5 on page 258.
+\end{proof}
+
+% Let $D_{H}$ be the Bregman divergence associated with $H$ defined by
+% (see {\efinition}~\ref{def:logahpoh})
+% \begin{equation}
+%   \label{eq:thiepooz}
+% D_{H}(x\|y)=H(x)-H(y)-\langle{}x-y,\nabla{}H(y)\rangle.
+% \end{equation}
+
+To keep the Bregman divergence corresponding to the entropy function
+positive, it will in this subsection also be adjusted to rewards
+rather than losses and defined in accordance with
+{\efinition}~\ref{def:logahpoh}
+\begin{equation}
+  \label{eq:pooceiyu}
+  D_{H}(x\|y)=H(x)-H(y)+\langle{}y-x,\nabla{}H(y)\rangle.
+\end{equation}
+
+\begin{lemma}
+  \label{lma:ohviomov}
+$D_{H}(x\|y)=D_{H^{\ast}}\left(y^{\ast}\|x^{\ast}\right)$.
+\end{lemma}
+\begin{proof}
+  \label{prf:keeseiph}
+  Recall that $H(x)+H^{\ast}(x^{\ast})=\langle{}x,x^{\ast}\rangle$ for
+  $\nabla{}H(x)=x^{\ast}$ according to (\ref{eq:phavuugi}). Together
+  with {\emma}~\ref{lma:xeemeixo}, the bilinearity and commutativity of
+  the inner product, and (\ref{eq:thiepooz}) this yields
+\begin{equation}
+  \label{eq:chahgheo}
+  \begin{split}
+& D_{H}(x\|y)-D_{H^{\ast}}\left(y^{\ast}\|x^{\ast}\right)= \\
+& H(x)-H(y)-\langle{}x-y,\nabla{}H(y)\rangle-H^{\ast}(y^{\ast})+H^{\ast}(x^{\ast})+\langle{}y^{\ast}-x^{\ast},\nabla{}H^{\ast}(x^{\ast})\rangle= \\
+& H(x)-H(y)-\langle{}x,\nabla{}H(y)\rangle+\langle{}y,y^{\ast}\rangle-H^{\ast}(y^{\ast})+ \\
+& H^{\ast}(x^{\ast})+\langle{}\nabla{}H(y),\nabla{}H^{\ast}(\nabla{}H(x))\rangle-\langle{}x^{\ast},\nabla{}H^{\ast}(\nabla{}H(x))\rangle= \\
+& H(x)-H(y)+\langle{}y,y^{\ast}\rangle-H^{\ast}(y^{\ast})+H^{\ast}(x^{\ast})-\langle{}x^{\ast},x\rangle=0 \\
+  \end{split}
+\end{equation}
+and establishes the lemma. The proof is based on \scite{8}{boissonnatetal10}{287}.
+\end{proof}
+
+My illustration for convex conjugates is the Log score (the Brier
+score would make a poor illustration, because, as we will find out,
+the Brier score is uniquely self-dual). For a given $x\in\mathcal{P}$,
+differentiate (\ref{eq:eeceetie}) to define $x^{\ast}$
+\begin{equation}
+  \label{eq:eipaiwup}
+  x^{\ast}_{i}=\frac{\partial}{\partial{}x_{i}}H_{\mbox{\tiny LS}}(x)=\ln\left(1-\sum_{j=1}^{n}x_{j}\right)-\ln{}x_{i}.
+\end{equation}
+To find $\nabla{}H_{\mbox{\tiny LS}}^{\ast}$, which is equal to
+$\left(\nabla{}H_{\mbox{\tiny LS}}\right)^{-1}$ according to {\emma}~\ref{lma:xeemeixo},
+solve the system of equations
+\begin{equation}
+  \label{eq:jahngohr}
+  \sum_{j=1}^{n}\left(e^{x^{\ast}_{i}}+\delta_{ij}\right)x_{j}=1.
+\end{equation}
+I found this solution by playing around with traces, inverses, and
+determinants on octave. Schmierbuch page 2510 has a summary of the
+conjecture I made on the basis of this playing around. You'd have to
+do some linear algebra to find a proof for this conjecture.
+\begin{equation}
+  \label{eq:yahxiexo}
+  x_{i}=\frac{1+\left(\sum_{i=1}^{n}e^{x^{\ast}_{i}}\right)-ne^{x^{\ast}_{i}}}{1+\left(\sum_{i=1}^{n}e^{x^{\ast}_{i}}\right)}.
+\end{equation}
+Because of {\emma}~\ref{lma:xeemeixo}, just as
+$\nabla{}H_{\mbox{\tiny LS}}(x)$ corresponds to the right-hand side of
+(\ref{eq:eipaiwup}), $\nabla{}H_{\mbox{\tiny LS}}^{\ast}(x^{\ast})$
+corresponds to the right-hand side of (\ref{eq:yahxiexo}).
+$H_{\mbox{\tiny LS}}^{\ast}$ is an antiderivative of the partial
+derivatives in (\ref{eq:yahxiexo}) with the constant of integration
+fixed by {\efinition}~\ref{def:paegoozi}.
+
+% For multiple dimensions, the linear algebra soon turns into a chore,
+% but for $n=1$,
+% \begin{equation}
+%   \label{eq:aehahkae}
+%   x=\frac{1}{e^{x^{\ast}}+1},x^{\ast}\in\mathbb{R}=\mathcal{P}^{\ast}
+% \end{equation}
+% with $H^{\ast}$ an antiderivative of the expression in
+% (\ref{eq:aehahkae}) (the constant of integration follows from applying
+% {\efinition}~\ref{def:paegoozi}),
+% \begin{equation}
+%   \label{eq:ueheisha}
+%   H^{\ast}(x^{\ast})=x^{\ast}-\ln\left(e^{x^{\ast}}+1\right).
+% \end{equation}
+% For $n=2$,
+% \begin{equation}
+%   \label{eq:raeyevua}
+  % x_{1}=\frac{\left(e^{x^{\ast}_{2}}+1\right)e^{x^{\ast}_{1}}-e^{x^{\ast}_{1}+x^{\ast}_{2}}}{e^{x^{\ast}_{1}}+e^{x^{\ast}_{2}}+1}\mbox{ and }x_{2}=\frac{\left(e^{x^{\ast}_{1}}+1\right)e^{x^{\ast}_{2}}-e^{x^{\ast}_{1}+x^{\ast}_{2}}}{e^{x^{\ast}_{1}}+e^{x^{\ast}_{2}}+1}
+%   x_{1}=\frac{e^{x^{\ast}_{2}}+1-e^{x^{\ast}_{1}}}{e^{x^{\ast}_{1}}+e^{x^{\ast}_{2}}+1}\mbox{ and }x_{2}=\frac{e^{x^{\ast}_{1}}+1-e^{x^{\ast}_{2}}}{e^{x^{\ast}_{1}}+e^{x^{\ast}_{2}}+1}
+% \end{equation}
+% with $H^{\ast}$ an antiderivative of the partial derivatives in
+% (\ref{eq:raeyevua}). The reader can by now probably appreciate how
+% convoluted it is to find convex conjugates in general except for
+% certain functions that lend themselves to this procedure.
+% there is an explicit formula here:
+% https://www.sonycsl.co.jp/person/nielsen/Note-LegendreTransformation.pdf
+% equation 4
+
+\begin{lemma}
+  \label{lma:opheejai}
+  The only self-dual convex differentiable function on $\mathcal{P}$
+  is $F(x)=\frac{1}{2}\langle{}x,x\rangle$.
+\end{lemma}
+\begin{proof}
+  \label{prf:vaegheiv}
+  I am adapting a proof in \scite{8}{rockafellar97}{106}. That $F$ is
+  self-dual follows from {\efinition}~\ref{def:paegoozi} and
+  {\emma}~\ref{lma:xeemeixo}. Now let $G$ be a self-dual convex
+  differentiable function. By {\emma}~\ref{lma:piangodi} (Fenchel's
+  inequality),
+\begin{equation}
+  \label{eq:oogoohei}
+  \langle{}x,x\rangle\leq{}G(x)+G^{\ast}(x)=2G(x).
+\end{equation}
+This means that $G\geq{}F$. By {\emma}~\ref{lma:pudiubao},
+$G^{\ast}\leq{}F^{\ast}$. Together with the self-duality of both $F$
+and $G$, this implies $F=G$.
+\end{proof}
+
+% {\Emmas}~\ref{lma:xeemeixo}, \ref{lma:ohviomov}, and
+% \ref{lma:opheejai} establish {\heorem}~\ref{thm:iechohng}.
+
+I will use the preceding lemmas to prove {\heorem}~\ref{thm:iechohng}
+stated in the beginning of the subsection, showing that only the Brier
+score and its close relatives are symmetric.
+
+\begin{proof}
+  \label{prf:quojeebo}
+  Recall that in the context of convex
+  functions, I am using reward functions rather than loss functions.
+  With this adjustment, the reward function and entropy function for
+  the Brier score according to (\ref{eq:hiexaeji}) and
+  (\ref{eq:yeuthohn}) are
+\begin{equation}
+  \label{eq:lethaiqu}
+    S(\xi_{i},x)=\frac{2x_{i}}{\sum_{k}x_{k}}-1-\sum_{j}\left(\frac{x_{j}}{\sum_{k}x_{k}}\right)^{2}
+\end{equation}
+\begin{equation}
+  \label{eq:iviniewe}
+    H(x)=\sum_{i}{}x_{i}\left(\frac{2x_{i}}{\sum_{k}x_{k}}-1-\sum_{j}\left(\frac{x_{j}}{\sum_{k}x_{k}}\right)^2\right).
+\end{equation}
+Since I assume probabilism, the sum of the probabilities is one. The
+above equations simplify to
+\begin{equation}
+  \label{eq:doteeboo}
+    S(\xi_{i},x)=2x_{i}-1-\sum_{j}x_{j}^{2}
+\end{equation}
+\begin{equation}
+  \label{eq:piihieri}
+    H(x)=\sum_{i}{}x_{i}\left(2x_{i}-1-\sum_{j}x_{j}^{2}\right).
+\end{equation}
+
+Note that according to McCarthy's theorem
+({\heorem}~\ref{thm:lahpoodu}) the $i$-th component of the vector
+$\nabla{}H(x)$ equals $S(\xi_{i},x)$ and therefore (see {\orollary}~\ref{cor:quiphaef})
+\begin{equation}
+  \label{eq:idiirioj}
+  H(x)=\sum_{i=1}^{n}x_{i}S(\xi_{i},x)
+\end{equation}
+For a close relative of the Brier score, therefore, reward function
+and entropy function are
+\begin{equation}
+  \label{eq:paegeina}
+    S(\xi_{i},x)=m\left(2x_{i}-1-\sum_{j}x_{j}^{2}\right)+b
+\end{equation}
+\begin{equation}
+  \label{eq:thughica}
+    H(x)=m\left(\sum_{i}{}x_{i}\left(2x_{i}-1-\sum_{j}x_{j}^{2}\right)\right)+b
+\end{equation}
+for some $m\in\mathbb{R}^{+},b\in\mathbb{R}$. The following
+calculation shows that the Brier score and its close relatives are
+symmetric.
+\begin{equation}
+  \label{eq:uudeilah}
+  \begin{split}
+    & D(x\|y)-D(y\|x)=H(x)-H(y)+\langle{}y,\nabla{}H(y)\rangle-H(y)+H(x)-\langle{}x,\nabla{}H(x)\rangle= \\
+    & 2\left(m\left(\sum_{i}{}x_{i}\left(2x_{i}-1-\sum_{j}x_{j}^{2}\right)\right)+b\right)- \\
+    & \sum_{i}x_{i}\left(m\left(2x_{i}-1-\sum_{j}x_{j}^{2}\right)+b\right)-\sum_{i}x_{i}\left(m\left(2y_{i}-1-\sum_{j}y_{j}^{2}\right)+b\right)- \\
+    & 2\left(m\left(\sum_{i}{}y_{i}\left(2y_{i}-1-\sum_{j}y_{j}^{2}\right)\right)+b\right)+ \\
+    & \sum_{i}y_{i}\left(m\left(2y_{i}-1-\sum_{j}y_{j}^{2}\right)+b\right)+\sum_{i}y_{i}\left(m\left(2x_{i}-1-\sum_{j}x_{j}^{2}\right)+b\right)=0
+  \end{split}
+\end{equation}
+\end{proof}
+
+\section{Hector and Paris}
+\label{section:shauboda}
+
+\subsection{Setup}
+\label{subsection:iewohgae}
+
+Hector and Paris have one dollar to invest in bets on a Bernoulli coin
+toss. A Bernoulli coin toss models whether or not an event will take
+place. Am I HIV-positive or not? Will I inherit a large sum of money
+in the next three months? Will this physical coin toss land heads or
+tails? Is the next die roll going to be a five? Will this stock
+increase by a certain amount in the next two weeks? Betting on a
+Bernoulli coin toss is related to the partial belief that an agent has
+about whether the coin toss lands heads. Investing in the stock market
+or shorting a stock is in some ways like betting on a Bernoulli coin
+toss; so is paying a certain price for a certain good. 
+
+Hector and Paris's betting strategy is represented by a function
+$R:[0,1]\rightarrow[0,1]$. If $w$ represents the bets offered to them,
+$R(w)$ is their response. The offer works as follows. Hector and Paris
+can invest in an $H$-bet at $w$ or a $T$-bet at $1-w$. I will call
+their investments the investment schema; I will call the two bets offered
+to them ($H$-bet at $w$ and $T$-bet at $1-w$) the bets associated with
+$w$.
+
+Let us say one of them invests $v_{H}$ dollars in an $H$-bet at $w$.
+Then his prize money is zero dollars if $T$ is tossed; $v_{H}/w$ if $H$ is
+tossed. The gain is $-v_{H}$ for $T$; $(v_{H}-v_{H}w)/w$ for $H$. The
+investment of $v_{T}$ in a $T$-bet at $1-w$ works likewise.
+Consequently, for investment schema
+\begin{equation}
+  \label{eq:fogohthe}
+(v_{H},v_{T})\in\{(v_{H},v_{T})\in\mathbb{R}^{2}|0\leq{}v_{H},0\leq{}v_{T},v_{H}+v_{T}\leq{}1\}
+\end{equation}
+the gain is
+\begin{equation}
+  \label{eq:githoofa}
+  \frac{v_{H}-v_{T}w-v_{H}w}{w}\hspace{1in}\mbox{ if }H\mbox{ is tossed}
+\end{equation}
+
+and
+
+\begin{equation}
+  \label{eq:eishuosa}
+  \frac{-v_{H}+v_{T}w+v_{H}w}{1-w}\hspace{1in}\mbox{ if }T\mbox{ is tossed}
+\end{equation}
+
+\begin{proposition}
+  \label{prp:ahjahfan}
+  For any investment schema $(v_{H},v_{T})$ there is an investment
+  schema $(v_{H}',v_{T}')$ with the same outcome as $(v_{H},v_{T})$ and
+  $v_{H}'+v_{T}'=1$.
+\end{proposition}
+
+\begin{proof}
+  \label{prf:xaethaef}
+  Define $v_{H}'=v_{H}+w-w(v_{H}+v_{T})$ and
+  $v_{T}'=1-v_{H}'$. Plugging $v_{H}'$ and $v_{T}'$ into
+  {\quations}~\ref{eq:githoofa} and \ref{eq:eishuosa} leaves the
+  resulting gain unchanged, but now $v_{H}'+v_{T}'=1$. 
+\end{proof}
+
+As a consequence, the investment schemas $(v_{H}',v_{T}')$ where
+$v_{H}'+v_{T}'=1$ are representative for all other possible investment
+schemas. We shall identify the investment schema $(v_{H}',v_{T}')$ by
+$x=v_{H}'$ ($v_{T}'$ is uniquely determined by $1-x$). The function
+$R$ assigns to each set of bets associated with $w$ the investment
+schema $R(w)=x$.
+
+If a betting agent wants to bail (not bet), they simply invest
+$(w,1-w)$. This strategy guarantees them a gain of zero, no matter
+what the result of the toss is. For a betting agent who always wants
+to bail, $R(w)=w$ for all $w\in[0,1]$.
+
+$R$ is in some way indicative of the agent's partial belief in the
+outcome of the coin toss. It may be indicative of other things as
+well, for example the risk tolerance of the agent or how much
+information the agent believes to have about the circumstances of the
+coin toss. For the purposes of this paper, the agent models the coin
+toss as the outcome of a random generator. This means that at least in
+the agent's model there is an objective chance $c$ that the coin toss
+will land heads. The agent usually does not know this number and might
+have partial beliefs about it.
+
+% Let the probability density $P$
+% represent the agent's credences about $c$, such that the probability
+% that $c\leq{}x$ is
+% \begin{equation}
+%   \label{eq:diimorah}
+%   \int_{0}^{x}dP
+% \end{equation}
+
+Let the cumulative credence function $F$ for the objective chance $c$ be
+\begin{equation}
+  \label{eq:vooshoov}
+  \mbox{Cr}(c\leq{}y)=F(y)
+\end{equation}
+where Cr is the credence (in this case that the objective chance $c$
+is smaller than or equal to $y$). Furthermore, assume that $F$ is
+absolutely continuous so that there is a Lebesgue-integrable density
+function $f$ with
+\begin{equation}
+  \label{eq:ovohdaiy}
+  F(y)=\int_{-\infty}^{y}f(u)\,du
+\end{equation}
+
+Let $G(x,w)$ be the gain of investing $x$ in an $H$-bet at $w$ and
+$1-x$ in a $T$-bet at $1-w$. There are two values for $G(x,w)$, one if
+$H$ is tossed, another if $T$ is tossed.
+\begin{equation}
+  \label{eq:boxobohm}
+  G(x,w)=\left(\frac{x-w}{w},-\frac{x-w}{1-w}\right)
+\end{equation}
+
+\begin{proposition}
+  \label{prp:tohboogh}
+  The expected gain for an agent holding Cr and following the
+  investment schema $x$ upon being offered the set of bets associated
+  with $w$ is
+\begin{equation}
+  \label{eq:aipheeke}
+  E(x,w)=\frac{x-w}{w(1-w)}\left(\int{}yf(y)\,dy-w\right)
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+  \label{prf:dauchahs}
+  Simplify
+  \begin{equation}
+    \label{eq:choobich}
+    E(x,w)=\int{}f(y)\left(y\left(\frac{x}{w}-1\right)+(1-y)\left(-\frac{x-w}{1-w}\right)\right)\,dy
+  \end{equation}
+  using $\int{}f(y)\,dy=1$.
+\end{proof}
+% Schmierbuch page 2540
+
+$\int{}yf(y)\,dy$ is the agent's sharp credence in $H$. Clearly,
+$E(x,w)$ is maximized with $x=1$ when the sharp credence is strictly
+greater than $w$; and with $x=0$ when the sharp credence is strictly
+less than $w$.
+
+\section{Zillner Map for Revising the Geometry of Reason}
+\label{section:xudahdoe}
+
+Start off with Clinton/Trump and propriety. Restrict everything to
+finite. Introduce tetrahedron. Outline Pettigrew's symmetry argument.
+Cast doubt on symmetry and geometry of reason. (i) Reductio using
+Levinstein et al. (ii) The oddity of Pettigrew's use of Bronfman.
+Build up the case for the logarithmic measure. Summarize Shannon's and
+Kullback-Leibler's arguments. Show how the logarithmic measure
+generalizes Bayes and Jeffrey. But then there are oddities with the
+logarithmic measure as well. Solution: divorce yourself even more from
+geometry.
+
+Make a list of desiderata, everything from the literature, in
+particular
+\begin{description}
+\item[symmetry] see Savage for equivalence Brier score and symmetry;
+  Ovcharov references Boissonnat for this fact---it would be
+  interesting to see if it could be proved using Legendre duality
+\item[propriety] uncontroversial
+\item[entropy] have an entropy function that matches Shannon's requirements
+\item[locality] make reward only depend on $p_{i}$ (Goodness, more detailed
+  description in Dawid, Lauritzen, Parry, page 594; Savage, page 794)
+\item[horizon] horizon
+\item[reductio-resistance] especially Levinstein etc.
+\item[Bronfman] Pettigrew's argument against diversity
+\item[additivity] a Pettigrew argument; both BS and LS fulfill it
+\end{description}
+
+Perhaps you can make a case that Brier and Log are the last two
+candidates standing. Pettigrew's case is that Brier is the only
+reasonable symmetric SR, whereas there is more diversity on the
+asymmetric side and therefore vulnerability to Bronfman.
+
+Open questions:
+
+\begin{itemize}
+\item Can the Shannon entropy be extended to non-standard
+  probabilities? Answer: No luck on google.
+
+\item In what sense is the logarithmic score a procedure that leads to
+  MLE (Dawid et al, 594)? For an answer to this question see Gneiting
+  and Raftery, pages 372ff.
+\item How can you fix things so that $D_{\mbox{\tiny KL}}$ is the
+  divergence function of the logarithmic score? Answer:
+  McCarthy's theorem.
+\item The above procedure shows how you can move from scoring rules to
+  entropy and divergence. What is the reverse procedure using
+  gradients? Answer: McCarthy's theorem.
+\item Does BdF's argument go through if the distance function is a
+  divergence? The answer to this question is in Theorem I.D.5 in
+  \texttt{richard-pettigrew-chapter-08.pdf}, page 13 (page 92 in the
+  book); and the answer is yes. BdF's argument is valid for any
+  additive Bregman divergence.
+\item Where is the symmetry argument? Can it be rephrased in terms of
+  Legendre duality? The first question appears to be answered in
+  Gneiting and Raftery, page 361: the symmetry argument is original to
+  Savage 1971.
+\item What is the connection between the $H$ of HB and entropy? Here
+  is a comment in my annotation on Gneiting and Raftery, page 361: ``$G$
+  measures what I will score if $Q$ is nature's chance function. I score
+  best when I predict $Q$ and the SR is proper. The entropy function
+  indicates my maximum reward if I correctly guess at $Q$. The more
+  uncertainty the more reward. Why would this be true? Why would I get
+  a higher reward for correctly guessing a more uncertain
+  distribution?''
+\end{itemize}
+
+\section{Jean-Daniel Boissonnat, Frank Nielsen, and Richard Nock:
+  Bregman Voronoi Diagrams}
+\label{section:enateegh}
+
+This paper is inspirational, especially with respect to convex
+conjugates. For example, it seems to me you should be able to prove
+that symmetry and Brier score go together on the basis of convex
+conjugates. First, let me try to find the convex conjugates for BS and
+LS (Brier score and Log score). I have verified the following in SB
+pages 2441ff. For LS, the loss function is
+\begin{equation}
+  \label{eq:oneeraiw}
+  \mbox{(LS) }S(\xi_{i},x)=\ln{}x_{i}-\ln\sum{}x_{k}
+\end{equation}
+on the positive orthant (convex cone containing $\mathcal{P}$). For
+BS, it is
+\begin{equation}
+  \label{eq:hiexaeji}
+  \mbox{(BS) }S(\xi_{i},x)=\frac{2x_{i}}{\sum{}x_{k}}-1-\sum_{j}\left(\frac{x_{j}}{\sum{}x_{k}}\right)^{2}
+\end{equation}
+The corresponding entropy functions are
+\begin{equation}
+  \label{eq:yeuthohn}
+  \mbox{(LS) }H(x)=\sum_{i}{}x_{i}\ln\frac{x_{i}}{\sum{}x_{k}}
+\end{equation}
+\begin{equation}
+  \label{eq:ahfooyai}
+  \mbox{(BS) }H(x)=\sum_{i}{}x_{i}\left(\frac{2x_{i}}{\sum{}x_{k}}-1-\sum_{j}\left(\frac{x_{j}}{\sum{}x_{k}}\right)^2\right)
+\end{equation}
+I have verified using sage that for both LS and BS it is true that
+\begin{equation}
+  \label{eq:eikughoh}
+  \nabla{}H(x)=S(\xi,x)
+\end{equation}
+where $S(\xi,x)=(S(\xi_{1},x),{\ldots},S(\xi_{n},x))^{\intercal}$ and
+\begin{equation}
+  \label{eq:esoobiey}
+  \nabla{}H(x)=\left(\frac{\partial{}H}{\partial{}x_{1}},{\ldots},\frac{\partial{}H}{\partial{}x_{n}}\right)^{\intercal}
+\end{equation}
+The scoring rule is the derivative of the entropy function. The
+entropy function generates a divergence via (see Boissonnat, 241)
+\begin{equation}
+  \label{eq:boodoquu}
+  D(p\|q)=H(p)-H(q)-\langle{}p-q,\nabla{}H(q)\rangle
+\end{equation}
+where $\langle{}.,.\rangle$ is the dot product (or matrix
+multiplication if you are using dual spaces). In the case of LS, the
+divergence is the Kullback-Leibler divergence (verified in SB 2440f),
+\begin{equation}
+  \label{eq:engeequu}
+  D_{\mbox{\tiny LS}}(p\|q)=\sum{}p_{i}\ln\frac{p_{i}}{\sum{}p_{k}}-\sum{}p_{i}\ln\frac{q_{i}}{\sum{}q_{k}}
+\end{equation}
+In the case of BS, it is
+\begin{equation}
+  \label{eq:aphooghi}
+  D_{\mbox{\tiny BS}}(p\|q)=\sum{}p_{i}\left[\sum_{j}\left(\frac{q_{j}}{\sum{}q_{k}}-\delta_{ij}\right)^{2}-\sum_{j}\left(\frac{p_{j}}{\sum{}p_{k}}-\delta_{ij}\right)^{2}\right]
+\end{equation}
+where $\delta_{ij}$ is the Kronecker delta. In either case, for LS or
+BS, the divergence is the difference between the expected loss of
+reported $q$ when $p$ is the true distribution and the entropy of
+$p$, which is the expected loss of reported $p$ when $p$ is the true
+distribution.
+
+Define
+\begin{equation}
+  \label{eq:kiegiqui}
+  F^{\ast}(\hat{x})=\sup_{x\in\mathcal{X}}\left\{\langle{}\hat{x},x\rangle{}-F(x)\right\}
+\end{equation}
+Let $G(x)=\langle{}\hat{x},x\rangle{}-F(x)$. Then the supremum is
+reached where the gradient of $G(x)$ vanishes.
+\begin{equation}
+  \label{eq:ahkoobou}
+  \frac{\partial{}G}{\partial{}x_{i}}=\frac{\partial}{\partial{}x_{i}}\left(\sum{}x_{i}\frac{\partial{}F}{\partial{}x_{i}}-F(x)\right)
+\end{equation}
+
+
+\section{Leonard Savage: Elicitation of Personal Probabilities and Expectations}
+\label{section:euzaevoe}
+
+The quarrel between Brier score and Log score roughly maps onto the
+quarrel between difference and ratio in the debate about evidence.
+\begin{itemize}
+\item If loss is a function of difference discrepancy $x-r$, then this
+  condition is equivalent to symmetry and only linear variations of
+  the Brier score fulfill it.
+\item If loss is a function of ratio discrepancy $r/x$, then this condition
+  is equivalent to horizon and only linear variations of the Log
+  score fulfill it.
+\item If, more generally, loss is a function of $g(r)-g(x)$, then only
+  the Log score or the Brier score fulfill it (789).
+\end{itemize}
+Savage helpfully uses the terminology of the trichotomy (win, loss,
+tie). I put screen shots of Trump/Clinton predictions by nytimes/538
+in the folder \texttt{barney/learning/dissertation/chapters/GeometryOfReason}.
+
+\section{Tilmann Gneiting and Matthias Katzfuss: Probabilistic Forecasting}
+\label{section:shaemabi}
+
+Nice diagram of a probabilistic forecast on page 127 (Bank of
+England). The goodness of a probabilistic forecast is measured by the
+extent to which realizations are distinguishable from from random
+draws from predictive distributions (127). Propriety is equivalent to
+Bregman form is attributed to Savage 1971 on page 136.
+
+\section{Claude Shannon: Mathematical Theory of Communication}
+\label{section:aehooboo}
+
+Go straight to section 6 on page 10. The proof is in appendix 2 on
+page 28.
+\begin{enumerate}
+\item $H$ should be continuous in the $p_{i}$
+\item If all the $p_{i}$ are equal, $p_{i}=1/n$, then $H$ should
+  be a monotonic increasing function of $n$. With equally likely
+  events there is more choice, or uncertainty, when there are more
+  possible events.
+\item If a choice be broken down into two successive choices, the
+  original $H$ should be the weighted sum of the individual values
+  of $H$.
+\end{enumerate}
+Here is an example for the last requirement,
+\begin{equation}
+  \label{eq:ohfaexoo}
+  H\left(\frac{1}{2},\frac{1}{3},\frac{1}{6}\right)=H\left(\frac{1}{2},\frac{1}{2}\right)+\frac{1}{2}H\left(\frac{2}{3},\frac{1}{3}\right)
+\end{equation}
+The only $H$ satisfying the three above assumptions is of the form
+\begin{equation}
+  \label{eq:eogohupi}
+  H=-K\sum_{i=1}^{n}p_{i}\log{}p_{i}
+\end{equation}
+
+\section{John McCarthy: Measures of the Value of Information}
+\label{section:bohfiebe}
+
+McCarthy uses the expression ``keep the forecaster honest'' (654).
+
+\textbf{Theorem 1.} A payoff rule keeps the forecaster honest if and only if
+\begin{equation}
+  \label{eq:hievaime}
+  f_{i}(q)=\frac{\partial}{\partial{}q_{i}}f(q)
+\end{equation}
+is a convex function of $q$ which is homogeneous of the first degree.
+$f_{i}{q}$ is the reward for the occurrence of the $i$-th event. This
+is terrible notation. $f_{i}(p)$ is $S(x_{i},P)$ and $f(p)$ is $H(P)$.
+McCarthy omits the proof. The expectation of an
+honest forecaster is then
+\begin{equation}
+  \label{eq:kohrupov}
+  \sum{}p_{i}f_{i}(p)=f(p)
+\end{equation}
+
+I.J. Good considered the problem of paying the forecaster with the
+restriction that $f_{i}(q)=F(q_{i}$, i.e.\ the payoff depends only on
+the probability assigned to the event which actually occurred. He
+showed that putting
+\begin{equation}
+  \label{eq:oquohshu}
+  F(x)=A\ln{}x+B
+\end{equation}
+keeps the forecaster honest, and Gleason (unpublished) showed that
+this is the only $F(x)$ which does. (This is McCarthy verbatim, 654.)
+
+I played this through for the Brier Score and the Log Score in
+Schmierbuch 2388f. Indeed,
+\begin{equation}
+  \label{eq:leisooth}
+  \sum_{j}q_{j}\frac{\partial{}S(x_{j},Q)}{\partial{}q_{i}}=0
+\end{equation}
+for the Brier Score $S(x_{i},Q)=1-2q_{i}+\sum_{j}q_{j}^{2}$. However,
+for the Log Score $S(x_{i},Q)=\ln{}q_{i}$ I get
+\begin{equation}
+  \label{eq:iebaingu}
+  \sum_{j}q_{j}\frac{\partial{}S(x_{j},Q)}{\partial{}q_{i}}=1
+\end{equation}
+
+McCarthy's theorem says (\ref{eq:iebaingu}) implies that the Log Score
+is not proper. What gives? Answer: Hendrickson and Buehler identify
+this problem on page 1918. The derivative needs to be taken with
+respect to $D$ (the convex cone of $\mathcal{P}$), not $\mathcal{P}$.
+
+Note that
+\begin{equation}
+  \label{eq:eetheaga}
+  \sum_{j}q_{j}\frac{\partial{}S(x_{j},Q)}{\partial{}q_{i}}=0
+\end{equation}
+looks suspiciously like the LHS in Euler's Homogeneous Function
+Theorem in
+\begin{alltt}
+  http://mathworld.wolfram.com/EulersHomogeneousFunctionTheorem.html
+\end{alltt}
+
+The intuitive content of the convexity restriction is that it is
+always a good idea to look at the outcome of an experiment if it is
+free (655). 
+
+\section{Arlo D. Hendrickson and Robert J. Buehler: Proper Scores for
+  Probability Forecasters}
+\label{section:eibualiu}
+
+\subsection{Inner Products}
+\label{subsection:rioxesho}
+
+HB have an interesting suggestion. $p=(p_{1},{\ldots},p_{n})$ (the
+credence function) is as usual an $n$-dimensional vector, but now so
+is $f(q)=(S(x_{1},q),{\ldots},S(x_{n},q))$, the score of $q$. This
+move turns the expectation of $q$ (the prediction) with respect to
+true world $p$ into an inner product $p\cdot{}f(q)$. Propriety demands
+\begin{equation}
+  \label{eq:aigureex}
+  H(p)=p\cdot{}f(p)\geq{}p\cdot{}f(q)
+\end{equation}
+for all $p,q$ in order to discourage hedging. See the comedy of errors
+in section~\ref{subsection:iegaecee}.
+
+\subsection{Definition 2.1 of Subgradients}
+\label{subsection:zaegheef}
+
+A subgradient, in my understanding, is a linear real-valued function $L$ which, if a
+real-valued function $f$ is convex on a neighbourhood $U$ of
+$x\in\mathbb{R}^{n}$, is less than $f$, i.e.\ $L(y)\leq{}f(y)$ on $U$.
+HB define as follows:
+\begin{equation}
+  \label{eq:wiokaeku}
+  f(y)\geq(y-x)L(y)+f(x)
+\end{equation}
+If all of this is one-dimensional, it's straightforward enough.
+\begin{equation}
+  \label{eq:hooxajee}
+  \frac{f(y)-f(x)}{y-x}
+\end{equation}
+is the slope of the secant line, and for a differentiable, convex
+function $f:\mathbb{R}\rightarrow\mathbb{R}$ the only way
+(\ref{eq:wiokaeku}) can be true is if $L(y)=f'(y)$. When $n\geq{}2$,
+$L(y)$ is presumably the vector of partial derivatives and the product
+is the inner product. So, if $f$ is convex and differentiable,
+\begin{equation}
+  \label{eq:iiquocah}
+  f(y)-f(x)\geq\sum(y_{i}-x_{i})\frac{\partial{}f}{\partial{}y_{i}}(y)
+\end{equation}
+I've always been puzzled that the slopes along the coordinate axes are
+simply added, but this appears to be true also for the product rule in
+higher dimensions, see (\ref{eq:jeeyongu}). If $f$ is differentiable,
+then the subgradient uniquely equals the gradient (see Rockafellar,
+theorem 25.1).
+
+\subsection{Euler's Theorem}
+\label{subsection:eephuupe}
+
+Theorem 2.1 tells us that if a function $f$ has a subgradient
+everywhere on a convex set $D$, then $f$ is convex on $D$. When HB
+refer to Euler's Theorem, they mean Euler's Homogeneous Function
+Theorem, see
+\begin{alltt}
+http://mathworld.wolfram.com/EulersHomogeneousFunctionTheorem.html
+\end{alltt}
+
+Theorem 2.2 is basically Euler's Theorem, but HB give an elegant
+proof. For the proof, note that
+\begin{equation}
+  \label{eq:quohnahj}
+  \frac{\lambda^{r}-1}{\lambda-1}=\lambda^{r-1}+{\ldots}+\lambda^{1}+\lambda^{0}
+\end{equation}
+As $\lambda\rightarrow{}1$, (\ref{eq:quohnahj}) goes to $r$ because
+there are $r$ summands.
+
+\subsection{Brier Score and Log Score}
+\label{subsection:eesheing}
+
+HB give a nice explanation why a superficial differentiation of
+the entropy function for the log score doesn't give you the log
+score, see page 1918.
+
+I checked the following using pen and paper first, sage second.
+The Brier score $f:\mathbb{R}^{n}\rightarrow\mathbb{R}^{n}$ is for
+$I=\{1,{\ldots},n\}$
+\begin{equation}
+  \label{eq:xeezaise}
+  f(x)=\left(2x_{i}-1-\sum_{k=1}^{n}x_{k}^{2}\right)_{i\in{}I}
+\end{equation}
+where $x\in\mathcal{P}$. It is interesting that in HB the scoring
+rule is restricted to the set of probability vectors
+$\mathcal{P}$. The entropy function
+$H:\mathbb{R}^{n}\rightarrow\mathbb{R}$ is defined on the convex
+cone $\mathcal{D}$. It is
+\begin{equation}
+  \label{eq:aejujuez}
+  H(y)=H(\lambda{}x)=\lambda{}H(x)=\lambda{}x\cdot{}f(x)
+\end{equation}
+for $y\in\mathcal{D},x\in\mathcal{P}$, and
+$\lambda=\sum{}y_{i}$. So defined, it is indeed true
+that
+\begin{equation}
+  \label{eq:ieghaico}
+  \frac{\partial{}H(y)}{\partial{}y_{i}}=f_{i}(y)=2x_{i}-1-\sum_{k=1}^{n}x_{k}^{2}
+\end{equation}
+when $y\in\mathcal{P}$, but the derivative of $H$ must be taken with
+respect to $\mathcal{D}$. For the log score, the corresponding
+functions are
+\begin{equation}
+  \label{eq:noofitho}
+  f(x)=\left(\log{}x_{i}\right)_{i\in{}I}
+\end{equation}
+and, indeed
+\begin{equation}
+  \label{eq:oofoothi}
+  \frac{\partial{}H(y)}{\partial{}y_{i}}=f_{i}(y)=\log{}y_{i}
+\end{equation}
+There is some sage code commented in the source code of \texttt{supplement.tex}.
+% sage: x=var('x')
+% sage: y=var('y')
+% sage: z=var('z')
+% sage: Hls(x,y,z)=x*log((x/(x+y+z)))+y*log((y/(x+y+z)))+z*log((z/(x+y+z)))
+% sage: gls(x,y,z)=diff(Hls(x,y,z),x)
+
+\section{Gneiting and Raftery: Strictly Proper Scoring Rules,
+  Rediction, and Estimation}
+\label{section:faokuoju}
+
+Generally nice summary. Bregman divergences come into play once the
+sample space is finite and the entropy function is sufficiently smooth
+(361). More details, I believe, are in Predd et al (2009). 
+
+Note the use of hedging strategies on page 362. 
+
+\section{Evgeni Ovcharov: Proper Scoring Rules and Bregman Divergences}
+\label{section:eitooshe}
+
+\subsection{A Comedy of Errors}
+\label{subsection:iegaecee}
+
+It seems to me that there is a mistake in Ovcharov. Definition 2.2
+says that a scoring rule $S$ is called proper if it maximizes its
+expected score at the true density,
+\begin{equation}
+  \label{eq:iemieder}
+  p\cdot{}S(p)=\max_{q\in\mathcal{P}}p\cdot{}S(q)
+\end{equation}
+However, it seems to me that this should say
+\begin{equation}
+  \label{eq:ieweiphi}
+  p\cdot{}S(p)=\max_{q\in\mathcal{P}}q\cdot{}S(p)
+\end{equation}
+The truth needs to vary, not the prediction!
+
+This is crazy. Ovcharov (5) and Hendrickson/Buehler (1916) seem to agree; but
+Dawid et al and Gneiting/Raftery have it my way. Let a chance-world be
+such that if it is known the chances are known but not the outcomes.
+
+\begin{description}
+\item[Ovcharov/Hendrickson/Buehler] There is one true chance-world. I
+  want to avoid that a forecaster will choose a forecast that is
+  different from what she knows to be true. This is not realistic.
+  Forecasters don't know which chance-world is true.
+\item[Dawid/Gneiting/Raftery] There are many possible chance-worlds,
+  an unknown one of which is true. I want to avoid that a forecaster
+  will choose a forecast that does not reflect her best estimate. For
+  example, a TV weather forecaster may deflate POP in order to boost
+  TV ratings. In this case, the reward $p\cdot{}f(q)$ ($p$ is the
+  forecaster's best estimate, $q$ is the deflated estimate) is greater
+  than the reward $p\cdot{}f(p)$; which is what we don't want. But
+  that's what Ovcharov/Hendrickson/Buehler are saying.
+\end{description}
+
+This is all a comedy of errors. The only person who's had this wrong
+is I. Both Ovcharov/Hendrickson/Buehler and Dawid/Gneiting/Raftery
+clearly state that the true world stays fixed and the prediction
+varies. 
+
+\section{Leszek Wronski: Belief Update Methods and Rules}
+\label{section:wiebahyu}
+
+\section{Dawid, Lauritzen, Parry: Proper Local Scoring Rules on
+  Discrete Sample Spaces}
+\label{section:ahtiesei}
+
+Let $P=(p_{1},{\ldots},p_{n})$ be a probability distribution over $n$
+mutually exclusive and collectively exhaustive events $x_{i}$. Let $Q$
+be the true (probability) distribution. Then $S(x_{i},P)$ is the loss
+suffered by the agent espousing $P$ when $x_{i}$ is true. Define
+\begin{equation}
+  \label{eq:nahcaece}
+  S(Q,P)=\sum_{i=1}^{n}q_{i}S(x_{i},P)
+\end{equation}
+which is the expected loss of $P$ with respect to $Q$. Dawid et al
+have nature first, forecaster second. Proper scoring rules require for
+$H(P)=\inf_{Q\in\mathcal{P}}S(Q,P)$
+\begin{equation}
+  \label{eq:moozeosh}
+  H(P)=S(P,P)
+\end{equation}
+$H$ is the entropy function. (\ref{eq:moozeosh}) encourages honesty.
+It prohibits the following scenario (which has been called `hedging').
+A forecaster's best guess at the true probability distribution $Q$ is
+$P'$ (with $P'\neq{}P$), but she knows that $S(P',P)<S(P',P')$, so
+instead of asserting $P'$ she asserts $P$.
+
+The divergence function is
+\begin{equation}
+  \label{eq:cienaeyo}
+  d(P,Q)=S(P,Q)-S(Q,Q)
+\end{equation}
+Notice that strict propriety requires that $d(P,Q)>0$ iff $P\neq{}Q$
+(i.e.\ that $d$ is positive-definite). 
+
+The Brier score is
+\begin{equation}
+  \label{eq:xoophoot}
+  S_{B}(x_{i},P)=1-2p_{i}+\sum_{j=1}^{n}p_{j}^{2}
+\end{equation}
+The summand 1 is sometimes omitted (as in Gneiting and Raftery,
+example 2.1, but not in Pettigrew). Consequently,
+\begin{equation}
+  \label{eq:phiengae}
+  S_{B}(P,Q)=\sum_{i=1}^{n}q_{i}\left(1-2p_{i}+\sum_{j=1}^{n}p_{j}^{2}\right)=1-2(P\cdot{}Q)+\sum_{i=1}^{n}p_{i}^{2}
+\end{equation}
+where $P\cdot{}Q$ is the dot product. Note that
+\begin{equation}
+  \label{eq:thequaev}
+  \frac{\partial}{\partial{}p_{k}}=2p_{k}-2q_{k}
+\end{equation}
+so that, indeed, $\inf_{Q\in\mathcal{P}}S(Q,P)=S(P,P)$.
+
+This means that
+\begin{equation}
+  \label{eq:aechahso}
+  H_{B}(P)=S_{B}(P,P)=1-\sum_{i=1}^{n}p_{i}^{2}
+\end{equation}
+Again, the summand 1 is omitted accordingly. The divergence function
+is the squared Euclidean distance
+\begin{equation}
+  \label{eq:goweepip}
+  d_{B}(P,Q)=\sum_{i=1}^{n}(p_{i}-q_{i})^{2}
+\end{equation}
+
+Now let's run through this for the logarithmic score (see Schmierbuch 2415).
+\begin{equation}
+  \label{eq:ohngooth}
+  S(x_{i},P)=-\ln{}p_{i}
+\end{equation}
+The entropy function is the Shannon entropy
+\begin{equation}
+  \label{eq:ahsainie}
+  H(P)=-\sum_{i=1}^{n}p_{i}\ln{}p_{i}
+\end{equation}
+The divergence function is 
+\begin{equation}
+  \label{eq:ohbaibah}
+  d(P,Q)=S(P,Q)-S(Q,Q)=\sum_{i=1}^{n}(q_{i}-p_{i})\ln{}q_{i}
+\end{equation}
+which, disappointingly, is not the Kullback-Leibler divergence
+\begin{equation}
+  \label{eq:oopeesae}
+  D_{\mbox{\tiny KL}}(Q,P)=S(Q,P)-S(Q,Q)
+\end{equation}
+Always remember that by convention the second argument of the
+Kullback-Leibler divergence is the prior probability. 
+
+The logarithmic score is local in the sense that $S(x_{i},P)$ depends
+only on $p_{i}$. The Brier score is not local in this sense (see Dawid
+et al, 597f; I.J. Good addresses this as well). 
+
+\section{Richard Pettigrew: Accuracy and the Laws of Credence}
+\label{section:pettigrew}
+
+\subsection{Measuring Accuracy: A New Account}
+\label{subsection:xiphievi}
+
+\subsubsection{Using Lagrange Multipliers to Find a Dominant
+  Probability Distribution}
+\label{subsubsection:hiewohph}
+
+Let $\mathcal{F}$ be an algebra of propositions. There may be other
+algebras of propositions, but it's easy to construct one using
+events that are logically unrelated in the sense that they do not
+entail one another, although they may be probabilistically dependent
+on each other. Let these events be $E_{1},{\ldots},E_{n}$. Then the
+algebra contains $2^{2^{n}}$ elements, $2^{n}$ atomic events of the
+form
+\begin{equation}
+  \label{eq:mahpoogh}
+  \omega_{i}=(\urcorner)E_{1}\cap{\ldots}\cap(\urcorner)E_{n}
+\end{equation}
+for $i=1,{\ldots},2^{n}$ and then combinations of the $\omega_{i}$
+such as
+\begin{equation}
+  \label{eq:aikaerei}
+  r_{j}=\omega_{3}\cup\omega_{6}\cup\omega_{12}
+\end{equation}
+for $j=1,{\ldots},2^{2^{n}}$. If there is only one event $A$, the
+algebra is 
+\begin{equation}
+  \label{eq:shiegaev}
+  \mathcal{F}=\{\emptyset,A,\urcorner{}A,\Omega\}
+\end{equation}
+where $\emptyset$ is the conjunction of all other propositions in the
+algebra and $\Omega$ is the disjunction of all other propositions in
+the algebra.
+
+My concern is that Joyce and Pettigrew only evaluate inaccuracy on
+atomic events. Here is my proof that for atomic events, there is
+indeed always a probability function which will dominate a credence
+function unless that credence function is itself a probability
+function. Let $m=2^{n}$ be the number of atomic events and $q$ a
+credence function defined on them with $\sum{}q_{i}=Q$. Then
+(beginning on page 2398 in Schmierbuch) I want to find a $p$ with
+$\sum{}p_{i}=1$ that dominates $q$, meaning that $p$'s inaccuracy
+measured by the Brier score is less than $q$'s inaccuracy, no matter
+which one of the $\omega_{i}$ is true. To find such a $p$, I look for
+the one that is closest to $q$. Define the Lagrangian
+\begin{equation}
+  \label{eq:ohyaihoh}
+  L(p)=\sum_{i=1}^{m}(p_{i}-q_{i})^{2}+\lambda\left(\left(\sum_{i=1}^{m}p_{i}\right)-1\right)
+\end{equation}
+Differentiate with respect to each $p_{i}$ and resolve the constraint
+for the following result
+\begin{equation}
+  \label{eq:aezedoop}
+  p_{k}=q_{k}-\frac{1}{m}(Q-1)
+\end{equation}
+It turns out that the difference $I(q,w)-I(p,w)$ is a function
+$J_{(m,w)}(Q)$ of the sum of the $q_{i}$'s, but not the individual
+$q_{i}$'s themselves. Let $w_{i}=1$ iff $\omega_{i}$ is true
+and $w_{i}=0$ iff $\omega_{i}$ is false. Recall that
+\begin{equation}
+  \label{eq:baviedam}
+  I(q,w)=\sum_{i=1}^{m}\left(q_{i}-w_{i}\right)^{2}
+\end{equation}
+(although this is a simplification of the algebra that I will cast
+doubt on later). Then
+\begin{equation}
+  \label{eq:einaicoo}
+J_{(m,w)}(Q)=\frac{1}{m}(Q-1)^{2}
+\end{equation}
+This result depends on
+\begin{equation}
+  \label{eq:tiduahom}
+\sum_{i=1}^{m}w_{i}=1  
+\end{equation}
+which is true because the atomic events are pairwise disjoint and
+their disjunction is $\Omega$. (\ref{eq:einaicoo}) tells us that a
+dominating $p$ can be found for each $q$ that is not itself a
+probability function, i.e.\ $Q=1$. It will be interesting to compare
+this proof to Pettigrew's proof. On page 80, he refers to theorems
+I.A.2, I.D.5, and I.D.7, which together establish theorem 4.3.4, and
+theorem 4.3.4 makes the above dominance claim.
+
+\subsubsection{Tetrahedrons and $n$-Simplices}
+\label{subsubsection:ofiedeeb}
+
+Indeed, a couple of days later, it was very interesting! De Finetti
+uses convex hulls to show that probability functions and \emph{only}
+probability functions are convex combinations of worlds. Consider
+two events $A,B$. 
+\begin{equation}
+  \label{eq:ongeefoo}
+  \begin{array}{rcl}
+  \omega_{0}&=&\urcorner{}A\cap\urcorner{}B \\
+  \omega_{1}&=&\urcorner{}A\cap{}B \\
+  \omega_{2}&=&A\cap\urcorner{}B \\
+  \omega_{3}&=&A\cap{}B
+  \end{array}
+\end{equation}
+
+Let the $r_{j}$ be as in (\ref{eq:aikaerei}), e.g.\
+$r_{0}=\emptyset,r_{14}=\urcorner(\urcorner{}A\cap\urcorner{}B),r_{15}=\Omega$.
+(I have been using $\urcorner$ for the set complement, which is a bit
+of notational mishmash between events and propositions.) Then the
+$r_{j}$ are an exhaustive list of the propositions that you can form
+using $A,B$. There are four possible worlds, one for each $\omega_{i}$
+to be true. I will write the vectors in matrix form to save space.
+Here are the four possible worlds, indicating whether $r_{j}$ is false
+or true. 
+
+\begin{equation}
+  \label{eq:aicooroh}
+  W_{0}=\left[
+    \begin{array}{cccc}
+      0 & 0 & 0 & 0 \\
+      0 & 0 & 0 & 0 \\
+      1 & 1 & 1 & 1 \\
+      1 & 1 & 1 & 1 \\
+    \end{array}\right]
+\end{equation}
+
+\begin{equation}
+  \label{eq:johruave}
+  W_{1}=\left[
+    \begin{array}{cccc}
+      0 & 0 & 0 & 0 \\
+      1 & 1 & 1 & 1 \\
+      0 & 0 & 0 & 0 \\
+      1 & 1 & 1 & 1 \\
+    \end{array}\right]
+\end{equation}
+
+\begin{equation}
+  \label{eq:eivohcoy}
+  W_{2}=\left[
+    \begin{array}{cccc}
+      0 & 0 & 1 & 1 \\
+      0 & 0 & 1 & 1 \\
+      0 & 0 & 1 & 1 \\
+      0 & 0 & 1 & 1 \\
+    \end{array}\right]
+\end{equation}
+
+\begin{equation}
+  \label{eq:kohzahsi}
+  W_{3}=\left[
+    \begin{array}{cccc}
+      0 & 1 & 0 & 1 \\
+      0 & 1 & 0 & 1 \\
+      0 & 1 & 0 & 1 \\
+      0 & 1 & 0 & 1 \\
+    \end{array}\right]
+\end{equation}
+
+Z{\"a}hneknirschend r{\"a}ume ich es ein, that de Finetti succeeds in
+showing that all and only probability functions are convex
+combinations of these four worlds,
+
+\begin{equation}
+  \label{eq:yiehieli}
+  p=\lambda{}W_{3}+\mu{}W_{2}+\nu{}W_{1}+(1-\lambda-\mu-\nu)W_{0}
+\end{equation}
+
+The probability distributions are a three-dimensional shape in a
+sixteen-dimensional space. More generally, for $n$ events, the
+probability distributions form a $(2^{n}-1)$-dimensional simplex in a
+$(2^{2^{n}})$-dimensional space. For two events, it is a tetrahedron in
+$\mathbb{R}^{16}$; for three events, it is a 7-simplex in
+$\mathbb{R}^{256}$. So, I need to get off the triangle/simplex
+bandwagon that I was on when I wrote the Geometry of Reason and get on
+the tetrahedron/$n$-simplex bandwagon!
+
+BdF claims that for a convex set and an arbitrary point $x$, we can always
+find a point $y$ that is an element of the convex set which is at least as
+close to all the other elements of the convex set as $x$ is. Is this
+true when we use the logarithmic divergence measure?
+
+\subsubsection{Differential Equations for Bregman Divergences}
+\label{subsubsection:suthahco}
+
+Let $D$ be a divergence with
+$D:[0,1]^{n}\times[0,1]^{n}\rightarrow[0,\infty]$ and $D(x,y)\geq{}0$,
+equality iff $x=y$. Then $D$ is an additive Bregman divergence iff the
+following conditions are met:
+\begin{equation}
+  \label{eq:oengaegh}
+  D(x,y)=\sum_{i=1}^{n}d(x_{i},y_{i})
+\end{equation}
+where $d$ is a one-dimensional divergence and generated by a smooth,
+bounded, strictly convex function $f$ such that for all $a,b\in[0,1]$
+\begin{equation}
+  \label{eq:thohauma}
+  d(a,b)=f(a)-f(b)-f'(b)(a-b)
+\end{equation}
+$d(a,b)$ is effectively the difference at $a$ between $f$ and the
+first Taylor expansion of $f$ with respect to $b$. Finding $f$ for a
+given divergence $d$ is a differential equation problem which I have
+posed on Math Stackexchange at \texttt{https://math.stackexchange.com/questions/2586331/ordinary-}
+\newline
+\texttt{differential-equation-with-deviating-distributed-retarded-arguments}
+
+Note that there is good material in Predd et.\ al.\ (2009) about this.
+
+\subsection{Bronfman Objection}
+\label{subsection:bronfman}
+
+This is where Pettigrew makes an argument for symmetry. It would be a
+good entry point for my criticism. It is an epistemic argument for
+symmetry in the sense that its validity depends on our current
+possibly deficient epistemic state.
+
+Reading notes:
+
+\begin{description}
+\item[page 2] RP says No Drop is ``if agent has opinion set $\{A,B\}$
+  and $A$ entails $B$ then rationality requires that
+  $c(A)\leq{}c(B)$.'' However, rationality does not require that the
+  agent knows that $A$ entails $B$. Is the agent logically omniscient?
+\item[page 4] RP defines the squared Euclidean distance in terms of
+  atomic propositions, but keeps saying all propositions. Which one is
+  it?
+\item[page 26] The Brier score is proper; is the Kullback-Leibler
+Divergence proper?
+\item[page 17] Theorem 1.0.2 can't be right the way it stands because
+  it privileges normalized probability functions.
+\item[ibidem] High-level criticism, not just of Pettigrew, but also of
+  Joyce and de Finetti. When they prove de Finetti's theorem, do they
+  take into account that a credence function is completely free in
+  choosing any credence for any proposition in the algebra, not just
+  the atomic propositions? If there is one event $E$, then the algebra
+  consists of 4 elements, $\{\emptyset, A, not-A, \Omega\}$. If there
+  are two events $A$ and $B$, then there are four atomic propositions
+  which determine any probability distribution: A and B, A and not-B,
+  not-A and B, not-A and not-B. The algebra consists of any
+  combination of these atomic propositions connected by OR, for how to
+  put this in code see definetti.jl. If $n$ is the number of events
+  under consideration, $2^n$ is the number of atomic propositions and
+  $2^(2^n)$ is the number of propositions in the algebra.
+  Probabilities are only free over the atomic propositions; credences
+  are free over the whole algebra. There are several things I want to
+  know: are there credences that are not Brier-score-dominated by a
+  single probability distribution given this more complicated state of
+  affairs? Does de Finetti's proof address this more complicated state
+  of affairs? Are there credences (which must be positive to be
+  measurable by DKL) that are not DKL-dominated by a single
+  probability distribution at each possible world?
+\item[section 4.1] Pettigrew claims that there are no irreducible
+  global features of inaccuracy. I agree. This, however, does not mean
+  that global inaccuracy must be the sum of local inaccuracies. It
+  only means that global inaccuracy is a function of local
+  inaccuracies, and there are many other functions beside addition
+  that would give us the local veritism that Wormwood wants.
+\item[page 51] Here is a problem with DKL and local inaccuracy. Let my
+  credence that a coin toss is H be 0.52. The world w1 at which we
+  measure my credence's local inaccuracy with respect to this
+  proposition is such that H is true. Then a local version of
+  inaccuracy for DKL is (?) $1\cdot\log(1/0.52)$ or $-\log(0.52)$. So
+  far so good, except that it subscribes to regularity in the sense
+  that my inaccuracy is infinite if I have an extreme credence of
+  zero. However, if at w2 not-H is true, then my local inaccuracy is
+  $0\cdot\log(0/0.52)$, which is conventionally taken to be zero. I
+  wouldn't have been inaccurate at all! Furthermore, my local
+  inaccuracy for the logically equivalent proposition not-H, in which,
+  say, I have credence 0.48, is completely different! Do these
+  problems go away if I model credences as manifolds and apply the
+  Fisher metric rather than modeling them using Cartesian coordinates
+  and applying DKL? What Wormwood calls a one-dimensional divergence
+  does not appear to be straightforward for logarithmic measures.
+\item[page 83] Why is $\mathcal{B}_{\mathcal{F}}$ restricted to credence
+  functions that take values between 0 and 1? This may help me because
+  DKL can't apply to negative numbers or zero. Pettigrew is consistent
+  here with his definition of credence functions on page 16,
+  Definition 1.0.1.
+\item[page 83] What is $\mathcal{W}_{\mathcal{F}}$? I am assuming it is
+  a set of worlds which corresponds to whether the propositions in
+  $\mathcal{F}$ are true or not. $\mathcal{F}$, according to Pettigrew, is
+  not necessarily an algebra. A credence function $c$, however, is
+  only a probability function if it can be extended to a credence
+  function that is a probability function on an algebra. There is some
+  circularity in P's definition of what a probability function is in
+  Definition 1.0.1.
+\item[ibidem] The meat is all in theorem I.A.2. Let's see if we can
+  poke any holes. Here is the only place I can think of: if $p$ and
+  $p'$ are probability functions, then so is
+  $\lambda{}p+(1-\lambda)p'$.
+\end{description}
+
+\section{Bernhard Schutz: Geometrical Methods of Mathematical Physics}
+\label{section:schutz}
+
+\subsection{Some Basic Mathematics}
+\label{subsection:veecheic}
+
+On page 15, show that $d''(x,y)$ is not a norm.
+
+\subsection{Differentiable Manifolds and Tensors}
+\label{subsection:vieghaem}
+
+On page 28, cover the interior of the annulus by a single coordinate
+patch.
+
+\subsubsection{Vectors and Vector Fields}
+\label{subsubsection:eiciexie}
+
+Explain (2.2) on page 32. Schutz' $\lambda$ is confusing to me. It
+appears to be a function from a closed interval
+$[a,b]\subset\mathbb{R}$ into the manifold $M$ (a curve). $f$ is
+$C^{\infty}(M)$, so $f:U\rightarrow\mathbb{R}$. $g$ is just a
+coordinate map, what Jeff Lee calls $x$, and goes from $U$ to
+$\mathbb{R}^{n}$. $g:U\rightarrow\mathbb{R}$. This makes no sense to
+me. What the hell is 
+\begin{equation}
+  \label{eq:phohvuoj}
+  \frac{dg}{d\lambda}
+\end{equation}
+if $g$ is defined on $U$ and goes into $\mathbb{R}^{n}$?
+
+Answer: you are mistaking figure 2.9 to apply to section 2.7 instead
+of section 2.6. $g$ is not a coordinate map in section 2.7. It looks
+like the $x^{i}$ determine the curve. In Jeff Lee's notation, let
+$\gamma:(a,b)\rightarrow{}V$ ($(V,y)$ is the usual open neighbourhood
+in $M$ plus coordinate map pair). Then Schutz'
+
+\begin{equation}
+  \label{eq:eenooroh}
+(x^{1}(\lambda),\ldots,x^{n}(\lambda)) 
+\end{equation}
+
+corresponds to Lee's
+$(y\circ{}\gamma)(\lambda)$ in $\mathbb{R}^{n}$. Schutz'
+$f:\mathbb{R}^{n}\rightarrow\mathbb{R}$ corresponds to 
+
+\begin{equation}
+  \label{eq:neilophi}
+  \hat{f}:\xi\in\mathbb{R}^{n}\rightarrow{}f(y^{-1}(\xi))
+\end{equation}
+
+in Lee. I derived (2.2) in Schutz with a complicated translation table
+between Lee and Schutz on page 2256 in Schmierbuch. Write $g$ in
+Schutz instead as $\hat{f}\circ{}x$, where $\hat{f}$ is as defined in
+(\ref{eq:neilophi}) and $x$ is as defined in (\ref{eq:eenooroh}),
+unfortunately mixing Schutz and Lee, but (2.2) pretty handily follows.
+
+Here is an example for the chain rule and multivariable
+differentiation. Let
+
+\begin{equation}
+  \label{eq:eengoogu}
+  \begin{array}{rcl}
+    f(x)&=&\left(x^{2},\frac{x}{2}\right) \\
+    g(w,z)&=&3w-z^{2}
+  \end{array}
+\end{equation}
+
+Then $(g\circ{}f)(x)=\frac{11}{4}x^{2}$ and therefore
+$(g\circ{}f)'(x)=\frac{11}{2}x$. According to the chain rule
+
+\begin{equation}
+  \label{eq:ahhoiqua}
+  \frac{d(g\circ{}f)}{dx}=\sum\frac{df^{i}}{dx}\frac{\partial(g\circ{}f)}{\partial{}f^{i}}=2x\cdot{}3+\frac{1}{2}\cdot\left(-2\cdot\frac{x}{2}\right)=\frac{11}{2}x
+\end{equation}
+
+This is what is behind Schutz' equation (2.2) on page 32.
+
+\subsubsection{Exercise 2.1}
+\label{subsubsection:veecheic}
+
+On page 44.
+
+\section{Michael K. Murray and John W. Rice:\newline Differential Geometry and
+Statistics}
+\label{murrayrice}
+
+Note that there is an informative article on exponential families and
+categorical distributions in Wikipedia. It suggests as parameters for
+the categorical distribution
+
+\begin{equation}
+  \label{eq:eemaepie}
+  \left(\ln\frac{p_{1}}{p_{k}},{\ldots},\ln\frac{p_{k-1}}{p_{k}},0\right)^{\intercal}.
+\end{equation}
+
+I wonder if the last parameter is necessary, since it's always zero.
+
+Let $P$ be the parametric family of normal distributions. Let
+$q=\mathcal{N}(0,1)$ (the origin) and $p=\mathcal{N}(7,9)$. The
+density for the normal distribution is
+
+\begin{equation}
+  \label{eq:balahghe}
+  p(\mu,\sigma)=\frac{1}{\sqrt{2\pi}\sigma}\exp\left(\frac{-(x-\mu)^{2}}{2\sigma^{2}}\right)
+\end{equation}
+
+Expressed as an exponential family, this is
+
+\begin{equation}
+  \label{eq:gexahmai}
+  p(\theta^{1},\theta^{2})=\exp\left(\theta^{2}x^{2}+\theta^{1}x^{1}-K(\theta)\right)
+\end{equation}
+
+$x^{2}$ is a second random variable (using differential geometry's
+habit of indexing vector components on the top right), but in the case
+of the normal distribution it is the first random variable squared,
+which makes for a hell of notational confusion.
+
+For $q$ and $p$ as above, the parameters are $(-0.5,0)$ and
+$(-1/18,7/9)$, respectively. The origin $q$ is not at $(0,0)$, which
+also creates confusion. The vector $\vec{w}$ associated with $p$, for
+example, so that
+
+\begin{equation}
+  \label{eq:aelayele}
+  q\oplus{}\vec{w}=p
+\end{equation}
+
+where $q\oplus{}\vec{w}=exp(\vec{w}x)q(x)$ ($x$ is $(x^{1},x^{2})$),
+is
+
+\begin{equation}
+  \label{eq:iiwiriew}
+  \vec{w}^{\intercal}=\left(\frac{4}{9},\frac{7}{9}\right).
+\end{equation}
+
+However, $q\oplus{}\vec{w}=p^{\ast}$ such that $[p^{\ast}]=[p]$, where
+$[p]$ is the equivalence class of measures up to scale. In other
+words, $p^{\ast}$ is $p$ once it is normalized (2153).
+
+For the normal distribution,
+
+\begin{equation}
+  \label{eq:ooleengu}
+  \theta^{1}=-\frac{1}{2\sigma^{2}},\hspace{.5in}\theta^{2}=\frac{\mu}{\sigma^{2}},\hspace{.5in}K(\theta)=\frac{1}{2}\ln\left(-\frac{\pi}{\theta^{1}}\right)-\frac{(\theta^{2})^{2}}{4\theta^{1}}
+\end{equation}
+
+On (2155f) I wonder if probability distributions/densities generally
+wouldn't be better expressed by equivalence classes of measures rather
+than normalized measures. The following appear to be privileged once
+you use the exponential parameters rather than simply the
+probabilities of the categories:
+
+\begin{itemize}
+\item sufficient statistics
+\item conjugate priors
+\item maximum entropy derivation (see Wikipedia)
+\end{itemize}
+
+The log-likelihood of $\mathcal{N}(0,1)$ is 0 because
+
+\begin{equation}
+  \label{eq:ohghaeng}
+  q=q\oplus{}0=e^{0}q
+\end{equation}
+
+The log-likelihood of $\mathcal{N}(7,9)$ is 
+
+\begin{equation}
+  \label{eq:aiwahief}
+  \ln\frac{1}{3}+\frac{1}{18}(8x^{2}+14x-49)
+\end{equation}
+
+Murray and Rice appear to get this wrong, assuming that the
+coordinates of the origin $q$ are $(0,0)$ so that the log-likelihood
+of $p$ would be $\theta_{p}x-K(\theta_{p})$, when really it is
+$\alpha_{p}x-K(\theta_{p})$ with $\theta_{q}+\alpha_{p}=\theta_{p}$
+(2160).
+
+Murray and Rice make a momentous claim on page 16:
+
+\begin{quote}
+  Hence $P$ is an exponential family if and only if $\tilde{P}$ is an
+  affine subspace of $\mathcal{M}$.
+\end{quote}
+
+I could not track with this claim and started reading Jeff Lee's book
+in order to understand this better (beginning of August, 2017; notes
+for Murray and Rice end on (2171) and begin for Lee on (2172)). I
+should note (January 2018) that Boissonnat, Nielsen, and Nock make the
+following claim: Banerjee et al have shown that there is a bijection
+between the regular exponential families in statistics and a subset of
+the Bregman divergences called regular Bregman divergences (285).
+
+\section{Jeffrey M. Lee: Manifolds and Differential Geometry}
+\label{lee}
+
+\subsection{The Tangent Structure (Chapter 2)}
+\label{subsection:woochong}
+
+\subsubsection{A Multivariable Calculus Exercise}
+\label{subsubsection:edohmien}
+
+Here is a nice exercise for my multivariable calculus students.
+Consider the vector
+
+\begin{equation}
+  \label{eq:egaiyeih}
+  \vec{OP}=(0.2,0.3,\sqrt{0.87})^{\intercal}
+\end{equation}
+
+$P$ is on the unit sphere. Provide the equation of the tangent plane.
+There are two ways to do this (2179):
+
+\begin{itemize}
+\item use partial derivatives $m_{x},m_{y}$ and the plane equation
+  $z=z_{0}+m_{x}(x-x_{0})+m_{y}(y-y_{0})$
+\item use the dot product and the fact that $\vec{OP}$ is orthogonal
+  to the tangent plane
+\end{itemize}
+
+\subsubsection{Lemma 2.4}
+\label{subsubsection:fiezothu}
+
+Showing $(f\circ\gamma_{v})'(0)=(f\circ{}c)'(0)$ on page 59 was a bit
+of a challenge. Interestingly, understanding this is important for
+solving exercise 2.16 on page 67 later on. On (2178) I am still
+carrying on with the assumption on Lee, page 56, that this is the
+special case of a submanifold of $\mathbb{R}^{N}$, but given Lee's
+talk about the ``general setting'' on the bottom of page 57, this must
+be incorrect. Show that
+
+\begin{equation}
+  \label{eq:chaequah}
+  \left.\frac{d}{dt}\right\vert_{t=0}(f\circ{}x_{\alpha}^{-1}\circ{}h)(t)=D(f\circ{}x_{\alpha}^{-1})(x_{\alpha}(p))\cdot\vec{v}
+\end{equation}
+
+with $x_{\alpha}(p)=\vec{q}\in\mathbb{R}^{n}$, $p\in\mathcal{M}$, and
+$h(t)=x_{\alpha}(p)+t\cdot\vec{v}$, $\vec{v}\in\mathbb{R}^{n}$. $f$ is
+a smooth real-valued function defined on $\mathcal{M}$, which has a
+chart $(U_{\alpha},x_{\alpha})$. Use the chain rule,
+
+\begin{equation}
+  \label{eq:baijoofe}
+  D(f\circ{}x_{\alpha}^{-1}\circ{}h)(0)=D(f\circ{}x_{\alpha}^{-1})(h(0))D(h)(0)=D(f\circ{}x_{\alpha}^{-1})(x_{\alpha}(p))\cdot\vec{v}
+\end{equation}
+
+and also
+
+\begin{equation}
+  \label{eq:aongivoo}
+  (f\circ{}c)'(0)=(f\circ{}x_{\alpha}^{-1}\circ{}x_{\alpha}\circ{}c)'(0)=D(f\circ{}x_{\alpha}^{-1})(x_{\alpha}(p))(x_{\alpha}\circ{}c)'(0)
+\end{equation}
+
+(see (2207)). 
+
+\subsubsection{The Leibniz Law}
+\label{subsubsection:eelahbao}
+
+For the use of the Leibniz Law on page 61 note that
+$C^{\infty}(\mathcal{M})$ is the set of real-valued, smooth functions
+on $\mathcal{M}$. Think of tangent spaces as a straightening of the
+manifold at a point. $T_{p}\mathcal{M}$ (kin) is the straightforward
+geometric interpretation, $T_{p}\mathcal{M}$ (phys) uses
+transformation laws, and $T_{p}\mathcal{M}$ (alg) uses linear
+functions which fulfill the Leibniz Law. Either way it's conversion
+therapy for manifolds: straighten them out at a point $p$ by using the
+linear functions provided by differentiation.
+
+\subsubsection{Theorem 2.10}
+\label{subsubsection:eengoroo}
+
+There is a proof on page 63 in Lee that 
+
+\begin{equation}
+  \label{eq:eisaanou}
+  \left(\left.\frac{\partial}{\partial{}x^{1}}\right\vert_{p},\ldots,\left.\frac{\partial}{\partial{}x^{n}}\right\vert_{p}\right)
+\end{equation}
+
+is a basis for $T_{p}\mathcal{M}$ (alg). First, note that $g$ needs to
+be defined all along $u$ from $0$ to $u$, thus the remark about the
+convex set. Next, let's have a look at the claim that
+
+\begin{equation}
+  \label{eq:seenithe}
+  g=g(0)+\sum{}g_{i}u^{i}
+\end{equation}
+
+based on the FTC. Let $g:x(U)\rightarrow\mathbb{R}$ be smooth. Let
+$h:\mathbb{R}\rightarrow{}x(U)$ be defined by $h(t)=t\vec{u}$. Then
+
+\begin{equation}
+  \label{eq:avaiteiz}
+  h'(t)=\left(
+    \begin{array}{c}
+      u^{1} \\
+\vdots \\
+u^{n}
+    \end{array}\right)^{\intercal}
+\end{equation}
+
+and 
+
+\begin{equation}
+  \label{eq:jeeyongu}
+  (g\circ{}h)'(t)=g'(h(t))\cdot{}h'(t)
+\end{equation}
+
+using matrix multiplication. Thus
+
+\begin{equation}
+  \label{eq:gaichieb}
+  (g\circ{}h)'(t)=\sum_{i=1}^{n}\frac{\partial{}g}{\partial{}u^{i}}(h(t))u^{i}
+\end{equation}
+
+and by the FTC
+
+\begin{equation}
+  \label{eq:yioqueep}
+  \int_{0}^{1}(g\circ{}h)'(t)\,dt=g(u)-g(0).
+\end{equation}
+
+It follows that
+
+\begin{equation}
+  \label{eq:eetuwuph}
+  \int_{0}^{1}(g\circ{}h)'(t)dt=\int_{0}^{1}\sum_{i=1}^{n}\frac{\partial{}g}{\partial{}u^{i}}(h(t))u^{i}\,dt=\notag
+\end{equation}
+
+\begin{equation}
+  \label{eq:ahwoofom}
+\sum_{i=1}^{n}\left(\int_{0}^{1}\frac{\partial{}g}{\partial{}u^{i}}(t\vec{u})\,dt\right)u^{i}=\sum_{i=1}^{n}g_{i}(u)u^{i}=g(u)-g(0).
+\end{equation}
+
+\subsubsection{Exercise 2.16}
+\label{subsection:aexaiwah}
+
+Show that $T_{p}f(\beta{}w_{p})=\beta{}T_{p}f(w_{p})$. Let
+$[c]=w_{p}$. Let $(U_{\alpha},x_{\alpha})$ be an arbitrary chart of
+$\mathcal{M}$ and $(\tilde{U}_{\alpha},\tilde{x}_{\alpha})$ an
+arbitrary chart of $\mathcal{N}$. By definition (see Lee, page 58f),
+
+\begin{equation}
+  \label{eq:aiquoowo}
+  T_{p}f(\beta{}w_{p})=[f\circ\gamma_{1}]\mbox{ and }\beta{}T_{p}f(w_{p})=[\gamma_{2}]
+\end{equation}
+
+with $\gamma_{1}(t)=(x_{\alpha}^{-1}\circ\phi_{1})(t)$ and
+$\gamma_{2}(t)=(\tilde{x}_{\alpha}^{-1}\circ\phi_{2})(t)$.
+
+\begin{equation}
+  \label{eq:engainok}
+  \phi_{1}(t)=x_{\alpha}(p)+t\beta(x_{\alpha}\circ{}c)'(0)
+\end{equation}
+
+\begin{equation}
+  \label{eq:pheequai}
+  \phi_{2}(t)=\tilde{x}_{\alpha}(q)+t\beta(\tilde{x}_{\alpha}\circ{}f\circ{}c)'(0)
+\end{equation}
+
+(see box A on (2201) and box B on (2203)). Show that for all
+$g\in{}C^{\infty}(\mathcal{N})$
+
+\begin{equation}
+  \label{eq:haithead}
+  (g\circ{}f\circ\gamma_{1})'(0)=(g\circ\gamma_{2})'(0)
+\end{equation}
+
+Use the chain rule to separate $\phi_{1}$ and $\phi_{2}$, so the claim
+reduces to LHS=RHS for
+
+\begin{equation}
+  \label{eq:ohngooze}
+  \mbox{LHS}=D(g\circ{}f\circ{}x_{\alpha}^{-1})(x_{\alpha}(p))\circ{}D(\phi_{1})(0)
+\end{equation}
+
+\begin{equation}
+  \label{eq:uboowaef}
+  \mbox{RHS}=D(g\circ{}\tilde{x}_{\alpha}^{-1})(x_{\alpha}(f(p)))\circ{}D(\phi_{2})(0)
+\end{equation}
+
+with
+
+\begin{equation}
+  \label{eq:jahgeito}
+D(\phi_{1})(0)=\beta{}D(x_{\alpha}\circ{}c)(0)  
+\end{equation}
+
+and
+
+\begin{equation}
+  \label{eq:ohquutee}
+D(\phi_{2})(0)=\beta{}D(\tilde{x}_{\alpha}\circ{}f\circ{}c)(0).
+\end{equation}
+
+Now reconstitute (undo the chain rule) for
+
+\begin{equation}
+  \label{eq:zeicaero}
+\mbox{LHS}=\beta{}D(g\circ{}f\circ{}x_{\alpha}^{-1}\circ{}x_{\alpha}\circ{}c)(0)  
+\end{equation}
+
+\begin{equation}
+  \label{eq:xaimieha}
+\mbox{RHS}=\beta{}D(g\circ{}\tilde{x}_{\alpha}^{-1}\circ{}\tilde{x}_{\alpha}\circ{}f\circ{}c)(0)  
+\end{equation}
+
+which are obviously equal to each other (see (2211)). To show that
+$T_{p}f(v_{p}+w_{p})=T_{p}f(v_{p})+T_{p}f(w_{p})$ use the same
+procedure. Let $v_{p}=[c_{v}]$ and $w_{p}=[c_{w}]$. Then you need to
+show that
+
+\begin{equation}
+  \label{eq:xubeasey}
+  (g\circ{}f\circ\gamma_{1})'(0)=(g\circ\gamma_{2})'(0)
+\end{equation}
+
+where
+
+\begin{equation}
+  \label{eq:ahngokee}
+  \gamma_{1}(t)=x_{\alpha}^{-1}(x_{\alpha}(p)+t((x_{\alpha}\circ{}c_{v})'(0)+(x_{\alpha}\circ{}c_{w})'(0)))
+\end{equation}
+
+and
+
+\begin{equation}
+  \label{eq:yiateegu}
+  \gamma_{2}(t)=\tilde{x}_{\alpha}^{-1}(\tilde{x}_{\alpha}(f(p))+t((\tilde{x}_{\alpha}\circ{}f\circ{}c_{v})'(0)+(\tilde{x}_{\alpha}\circ{}f\circ{}c_{w})'(0)))
+\end{equation}
+
+Use the distributive law of matrix multiplication to show
+(\ref{eq:xubeasey}) (see (2213)). Now show that $T_{p}f$ is a linear
+isomorphism if $f$ is a diffeomorphism. For surjectivity, let
+$[\hat{c}]\in{}T_{q}\mathcal{N}$. Define
+$c:t\rightarrow(f^{-1}\circ\hat{c})(t)$. Then $[f\circ{}c]=[\hat{c}]$.
+For injectivity, let $c_{1},c_{2}$ be such that
+$[f\circ{}c_{1}]=[f\circ{}c_{2}]$ and let
+$g:\mathcal{M}\rightarrow\mathbb{R}$ be smooth. Then $g\circ{}f^{-1}$
+is a smooth function from $\mathcal{N}\rightarrow\mathbb{R}$ and
+therefore 
+
+\begin{equation}
+  \label{eq:chahshau}
+  (g\circ{}c_{1})'(0)=(g\circ{}f^{-1}\circ{}f\circ{}c_{1})'(0)=(g\circ{}f^{-1}\circ{}f\circ{}c_{2})'(0)=(g\circ{}c_{2})'(0)
+\end{equation}
+
+which establishes $[c_{1}]=[c_{2}]$ (for this proof see (2215)).\hspace\fill $\square$
+
+\subsubsection{Definition 2.18}
+\label{subsubsection:yiobeche}
+
+On page 68, Lee claims that the definition of
+$T_{p}\mathcal{M}(v_{p})$ is independent of the representative of
+$v_{p}$. Let $(p,v_{1},(U,x_{1})),(p,v_{2},(U,x_{2}))$ be two
+representatives of $v_{p}$. Let $(V,y)$ be an arbitrary chart for
+$\mathcal{N}$ (I suppose we should also show independence of this
+chart for $\mathcal{N}$). Then $T_{p}\mathcal{M}(v_{p})$ is defined to
+be represented by $(q,w,(V,y))$ with
+
+\begin{equation}
+  \label{eq:aexapief}
+  w=\left.{}D(y\circ{}f\circ{}x^{-1})\right\vert_{x(p)}\cdot{}v_{p}
+\end{equation}
+
+(this is a correction of an omission on Lee's part). The two
+representatives corresponding to the two charts for $\mathcal{M}$ are
+$(q,w_{1},(V,y))$ and $(q,w_{2},(V,y))$ with 
+
+\begin{equation}
+  \label{eq:oucootoo}
+w_{1}=D(y\circ{}f\circ{}x_{1}^{-1})\cdot{}v_{1}
+\end{equation}
+
+\begin{equation}
+  \label{eq:ieneipae}
+w_{2}=D(y\circ{}f\circ{}x_{2}^{-1})\cdot{}v_{2}
+\end{equation}
+
+We need to show that
+
+\begin{equation}
+  \label{eq:chuaphoo}
+  w_{2}=\left.D(y\circ{}y^{-1})\right\vert_{y(q)}\cdot{}w_{1}.
+\end{equation}
+
+You show this by taking
+$\left.{}D(y\circ{}y^{-1}\circ{}y\circ{}f\circ{}x_{1}^{-1}\circ{}x_{1}\circ{}x_{2}^{-1})\right\vert_{x_{2}(p)}\cdot{}v_{2}$
+and using (\ref{eq:oucootoo}) and (\ref{eq:ieneipae}) on the one hand,
+the chain rule on the other hand (see (2216f)).
+
+\subsubsection{Definition 2.20}
+\label{subsubsection:queceixo}
+
+A word about the definition of differentials on page 69. Using
+derivations, a tangent vector $v_{p}$ is a linear map from
+$C^{\infty}(\mathcal{M})$ into the real numbers obeying Leibniz's Law.
+The space of these linear maps is $T_{p}\mathcal{M}$. Consider a
+function $f\in{}C^{\infty}(\mathcal{M})$. Now define a linear map $df$
+assigning to each $v_{p}$ the real number $v_{p}\cdot{}f$. $df$ is a
+function from $T_{p}\mathcal{M}$ to the real numbers and depends on
+$f$ and $p$. 
+
+Consider the dual space (the cotangent space) of $T_{p}\mathcal{M}$.
+It is defined as the vector space spanned by
+$(v_{1}^{\ast},\ldots,v_{n}^{\ast})$, where $(v_{1},\ldots,v_{n})$ is
+a basis for $T_{p}\mathcal{M}$ and $v_{i}^{\ast}$ is a function
+from $T_{p}\mathcal{M}$ to the real numbers with
+$v_{i}^{\ast}(v_{j})=\delta_{ij}$. Lee's claim is that
+$df\in{}T_{p}^{\ast}\mathcal{M}$. 
+
+Now look at this in basic calculus. The differential $dy$ is defined
+as a function assigning to each $dx$ the real number $f'(x)dx$. Think
+of it as a linear function from the tangent space of $f$ at point $a$
+into the real numbers. $dx$ is usually identified with $\Delta{}x$,
+but now you can see the subtle difference between $\Delta{}x$ and
+$dx$. If $f:\mathbb{R}^{2}\rightarrow\mathbb{R}$, then $dx$ is a
+vector in $\mathbb{R}^{2}$ and gets mapped to 
+
+\begin{equation}
+  \label{eq:kaithaed}
+  dy=df(p)(dx)=\frac{\partial{}f}{\partial{}x_{1}}dx_{1}+\frac{\partial{}f}{\partial{}x_{2}}dx_{2}
+\end{equation}
+
+where $dx_{1}$ is the $x$-component of $dx$ and $dx_{2}$ is the
+$y$-component. The $z$-component of $dx$ is $dy$ by definition (see
+the diagram on (2223)). For (\ref{eq:kaithaed}), see (2222). The
+upshot here is that $dx$ is a vector in $T_{p}\mathcal{M}$, while
+$\Delta{}x$ is a vector in the $xy$-plane, and we can generalize
+
+\begin{equation}
+  \label{eq:lajiobie}
+  dy=f'(x)dx
+\end{equation}
+
+to
+
+\begin{equation}
+  \label{eq:oopeodoo}
+  dy=df(p)(dx)=\sum_{i=1}^{n}\frac{\partial{}f}{\partial{}x_{i}}dx_{i}
+\end{equation}
+
+where the last expression is only defined for
+$f:\mathbb{R}^{n}\rightarrow\mathbb{R}$. Now let's see if Lee is
+correct with his claim that $df\in{}T_{p}^{\ast}\mathcal{M}$ and that
+the generalization in (\ref{eq:oopeodoo}) holds.
+
+We have a vector space $T_{p}\mathcal{M}$. Therefore, there is a dual
+vector space $T_{p}^{\ast}\mathcal{M}$. We know (theorem 2.10) that
+$T_{p}\mathcal{M}$ has the basis
+
+\begin{equation}
+  \label{eq:feiwawee}
+    \left(\left.\frac{\partial}{\partial{}x^{1}}\right\vert_{p},\ldots,\left.\frac{\partial}{\partial{}x^{n}}\right\vert_{p}\right)
+\end{equation}
+
+The basis for $T_{p}^{\ast}\mathcal{M}$ is
+$(v_{1}^{\ast},\ldots,v_{n}^{\ast})$ such that 
+
+\begin{equation}
+  \label{eq:bieyangi}
+  v_{i}^{\ast}\left(\left.\frac{\partial}{\partial{}x^{j}}\right\vert_{p}\right)=\delta^{ij}
+\end{equation}
+
+If $(U,x)$ is a chart, then the differentials of the coordinate
+functions $x^{1},\ldots,x^{n}$ fulfill (\ref{eq:bieyangi}) because
+
+\begin{equation}
+  \label{eq:yooxieta}
+  \left.dx^{i}\right\vert_{p}\left(\left.\frac{\partial}{\partial{}x^{j}}\right\vert_{p}\right)=\frac{\partial{}x^{i}}{\partial{}x^{j}}(p)=\delta^{ij}
+\end{equation}
+
+From now on, I will follow Lee and write $M$ and $N$ for manifolds,
+rather than $\mathcal{M}$ and $\mathcal{N}$.
+
+\subsubsection{Another Remark on Definition 2.21}
+\label{subsubsection:doopifae}
+
+Let $T_{p}f$ be a tangent map from
+$T_{p}M\rightarrow{}T_{f(p)}\mathbb{R}$ and $df(p)$ be a differential
+of $f$ at $p$. Lee's claim is that $T_{p}f$ and $df(p)$ basically do
+the same thing once you identify $T_{f(p)}\mathbb{R}$ with
+$\mathbb{R}$ using the natural isomorphism on page 66. Therefore, a
+differential is just a special tangent map into $T_{f(p)}\mathbb{R}$
+(identified with $\mathbb{R}$). 
+
+To see why this is so note that
+$T_{p}f:T_{p}M\rightarrow{}T_{f(p)}\mathbb{R}$ is the map that sends
+$v_{p}$ to $T_{p}f(v_{p})$, a linear map which sends any real-valued
+function $g$ to the real number
+\begin{equation}
+  \label{eq:ugaiwoon}
+  (T_{p}f(v_{p}))(g)=v_{p}(g\circ{}f)
+\end{equation}
+
+Note also that $df(p)$ is a real-valued map sending $v_{p}$ to
+$v_{p}f$. This means we have succeeded once $T_{p}f(v_{p})$ is
+identified with $v_{p}f$ via the natural isomorphism $\jmath$. Consider the
+real number $v_{p}f$. 
+\begin{equation}
+  \label{eq:aezuroti}
+  \jmath(v_{p}f)=[\hat{c}]
+\end{equation}
+where
+\begin{equation}
+  \label{eq:aecoocha}
+  \hat{c}(t)=f(p)+t\cdot(v_{p}f)
+\end{equation}
+Once we show that $[\hat{c}]=T_{p}f(v_{p})$ we are done. Note that
+$[\hat{c}]\in{}T_{f(p)}\mathbb{R}$.
+
+Let $g$ be a real-valued function in $C^{\infty}(M)$ and $[c]=v_{p}$.
+Use the interpretation on page 65, the chain rule, and
+(\ref{eq:aecoocha}) to show that
+\begin{equation}
+  \label{eq:iephavam}
+(T_{p}f(v_{p}))(g)=v_{p}(g\circ{}f)=\left.\frac{d}{dt}\right\vert_{t=0}(g\circ{}f\circ{}c)=\notag
+\end{equation}
+\begin{equation}
+  \label{eq:hekeivei}
+g'(f(p))f'(p)c'(0)=g'(f(p))(v_{p}f)=\left.\frac{d}{dt}\right\vert_{t=0}(g\circ{}\hat{c})
+\end{equation}
+
+\subsubsection{Definition 2.21}
+\label{subsubsection:ipaikaph}
+
+Consider Lee's comment on the bottom of page 69. Let $\gamma$ be a smooth
+curve from a real neighbourhood of $0$ to $[a,b]=I$ such that 
+
+\begin{equation}
+  \label{eq:wohyeisu}
+  [\gamma]=\left.\frac{\partial}{\partial{}u}\right\vert_{t_{0}}
+\end{equation}
+
+According to the interpretation of page 65 (identifying kinematic and
+algebraic tangent spaces),
+
+\begin{equation}
+  \label{eq:oengueko}
+\left.\frac{d}{dt}\right\vert_{t=0}f\circ\gamma=\left(\left.\frac{\partial}{\partial{}u}\right\vert_{t_{0}}\right)(f)
+\end{equation}
+
+Let $f=\mbox{id}$ for
+
+\begin{equation}
+  \label{eq:aexoosho}
+\left.\frac{d}{dt}\right\vert_{t=0}\gamma=\left.\frac{\partial\mbox{id}}{\partial{}u}\right\vert_{t_{0}}=1
+\end{equation}
+
+Now use the same interpretation in reverse for
+
+\begin{equation}
+  \label{eq:cebaasee}
+  \dot{c}(t_{0})\cdot{}f=\left(T_{t_{0}}c\left(\left.\frac{\partial}{\partial{}u}\right\vert_{t_{0}}\right)\right)(f)=\left.\frac{d}{dt}\right\vert_{t=0}f\circ(c\circ\gamma)=\notag
+\end{equation}
+
+\begin{equation}
+  \label{eq:cebaasee}
+  \left.\frac{d}{dt}\right\vert_{t=t_{0}}f\circ{}c\cdot\left.\frac{d}{dt}\right\vert_{t=0}\gamma=\left.\frac{d}{dt}\right\vert_{t=t_{0}}f\circ{}c
+\end{equation}
+
+as claimed by Lee. This is a nice example how a mixed use of algebraic
+and kinematic tangent spaces can be reconciled using the
+interpretations of page 65. I suppose an alternative way of doing this
+is to use the algebraic definition of a tangent map $T_{p}f$ instead
+(definition 2.19).
+
+\subsubsection{Exercise 2.23}
+\label{subsubsection:jaighaec}
+
+$T_{p}f=0$ for all $p\in{}M$ means that for any smooth
+$g:N\rightarrow{}\mathbb{R}$ and for any $v_{p}=[c]$ it is true that
+
+\begin{equation}
+  \label{eq:thuiriaf}
+  v_{p}(g\circ{}f)=0
+\end{equation}
+
+Let $p_{1}$ and $p_{2}$ be two arbitrary connected points in $M$ such
+that a curve $c:I\rightarrow{}M$ connects them with
+$c(a)=p_{1},c(0)=p,c(b)=p_{2},a<0<b$. Then (\ref{eq:thuiriaf}) is true
+for $v_{p}$ and therefore
+
+\begin{equation}
+  \label{eq:yeiphaes}
+  v_{p}(g\circ{}f)=\left.\frac{d}{dt}\right\vert_{t=0}\left(g\circ{}f\circ{}c\right)=0
+\end{equation}
+
+Define $h(t)=(g\circ{}f\circ{}c)(t)$ for an arbitrary $g$. Claim:
+$h'(t)=0$ for all $t$ in the open interval $(a,b)$. Assume that
+$h'(t_{0})\neq{}0$. Then define
+
+\begin{equation}
+  \label{eq:ohngeihi}
+  \phi(t)=r_{2}t^{2}+r_{1}t+t_{0}
+\end{equation}
+
+with
+
+\begin{equation}
+  \label{eq:laucaequ}
+  r_{1}=\frac{b^{2}(a-t_{0})-a^{2}(b-t_{0})}{ab(b-a)}
+\end{equation}
+
+\begin{equation}
+  \label{eq:ohjireeg}
+  r_{2}=\frac{a(b-t_{0})-b(a-t_{0})}{ab(b-a)}.
+\end{equation}
+
+Then $\phi(a)=a,\phi(0)=t_{0},\phi(b)=b$. Also,
+
+\begin{equation}
+  \label{eq:aifoheif}
+  \phi'(0)=r_{1}\neq{}0
+\end{equation}
+
+because $b^{2}(a-t_{0})\neq{}a^{2}(b-t_{0})$ ($a-t_{0}$ is the only
+negative term). Let $\hat{c}=c\circ\phi$ and
+
+\begin{equation}
+  \label{eq:xeixaiyo}
+  (g\circ{}f\circ\hat{c})'(0)=0
+\end{equation}
+
+for the same reason as (\ref{eq:yeiphaes}). However
+
+\begin{equation}
+  \label{eq:aingooda}
+  (g\circ{}f\circ\hat{c})'(0)=(g\circ{}f\circ{}c\circ\phi)'(0)=(g\circ{}f\circ{}c)'(\phi(0))\cdot\phi'(0)
+\end{equation}
+
+and by assumption and (\ref{eq:aifoheif}) both of these factors are
+not equal to zero. The contradiction gives us the claim that $h'(t)=0$
+for all $t\in{}(a,b)$. According to the Fundamental Theorem of
+Calculus, there is a $\hat{s}$ with $a\leq\hat{s}\leq{}b$ giving us
+(together with our claim)
+
+\begin{equation}
+  \label{eq:eitheisu}
+  h(b)-h(a)=h'(\hat{s})(b-a)=0
+\end{equation}
+
+Therefore $(g\circ{}f)(p_{1})=(g\circ{}f)(p_{2})$ for arbitrary $g$.
+This is only possible if $f(p_{1})=f(p_{2})$. Therefore, $f$ is
+locally constant (2229--2237).\hspace\fill $\square$
+
+\subsubsection{Theorem 2.25}
+\label{subsubsection:ooghohbe}
+
+Lee claims that under the assumptions of Theorem 2.25 $M$ and $N$ have
+the same dimension. Remember that 
+
+\begin{equation}
+  \label{eq:naijahba}
+  \left(\left.\frac{\partial}{\partial{}x^{1}}\right\vert_{p},\ldots,\left.\frac{\partial}{\partial{}x^{n}}\right\vert_{p}\right)
+\end{equation}
+
+is a basis for $T_{p}M$. Therefore, $\mbox{dim}(M)=\mbox{dim}(T_{p}M)$
+and $\mbox{dim}(N)=\mbox{dim}(T_{q}N)$. If there is a linear
+isomorphism between two vector spaces $V$ and $W$, then
+$\mbox{dim}(V)=\mbox{dim}(W)$. For a proof by S.F. Ellermeyer, see
+
+\begin{alltt}
+\footnotesize
+  http://ksuweb.kennesaw.edu/~sellerme/sfehtml/classes/math3260/isomorphicvectorspaces.pdf
+\end{alltt}
+
+Since $T_{p}f$ is such a linear isomorphism between $T_{p}M$ and
+$T_{q}N$, it follows that $\mbox{dim}(M)=\mbox{dim}(N)$.\hspace\fill
+$\square$
+
+Notice how Exercise 2.16 and Theorem 2.25 are related. I needed
+Exercise 2.16 for the claim that $T_{p}f$ is a \emph{linear}
+isomorphism. $D(y\circ{}f\circ{}x^{-1})(x(p))$ is a linear isomorphism
+because it is one of the definitions (Definition 2.18) of a tangent
+map $T_{p}f$, and $T_{p}f$ is a linear isomorphism by assumption. If
+$y\circ{}f\circ{}x^{-1}$ is injective, then $f$ is also injective. Let
+$\pi_{i}=x^{-1}(p_{i})$ and $f(p_{1})=f(p_{2})$. Then
+$\pi_{1}=\pi_{2}$ and therefore $p_{1}=p_{2}$. Restricting the
+codomain of $f$ to $f(O)$ means that $f|_{O}$ is a diffeomorphism on
+$O$.
+
+\subsubsection{Lemma 2.28 Partials Lemma}
+\label{subsubsection:geesohla}
+
+My work is on (2329--2332). $(v,w)$ is prima facie not a tangent
+vector. It becomes one by identification with
+$(T\imath^{q}+T\imath_{p})(v,w)$, see Lee, page 73. $T\imath^{q}$ is not the
+inverse of $T_{(p,q)}\mbox{pr}_{1}$, as the diagram near the middle of
+page 73 in Lee suggests. It is the tangent map with respect to the
+insertion function $\imath^{q}$. Insertion $\imath^{q}$ and stripping
+$T_{(p,q)}\mbox{pr}_{1}$ are not inverse to each other. The validity
+of the lemma is now easily demonstrated.
+
+\begin{equation}
+  \label{eq:uwiusosa}
+  (T_{(p,q)}f(v,w))(g)\stackrel{(1)}{=}(v,w)(g\circ{}f)\stackrel{(2)}{=}v(g\circ{}f\circ\imath^{q})+w(g\circ{}f\circ\imath_{p})\stackrel{(3)}{=}\notag
+\end{equation}
+\begin{equation}
+  \label{eq:gaedaiqu}
+  (\partial_{1}f_{(p,q)}v)(g)+(\partial_{2}f_{(p,q)}w)(g)
+\end{equation}
+
+(1) is true based on the definition of tangent maps (definition 2.19
+on page 68) with respect to $f$. (2) is true based on the
+identification referred to above and the definition, again, of tangent
+maps, this time with respect to $\imath^{q}$ and $\imath_{p}$. (3) is
+true based on the definition of partial tangent maps on page 72.\hspace\fill $\square$
+
+\end{document}

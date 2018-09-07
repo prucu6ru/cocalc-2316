@@ -1,0 +1,12 @@
+\begin{thebibliography}{1}
+\newcommand{\enquote}[1]{``#1''}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\providecommand{\urlprefix}{}
+
+\bibitem[{Selten(1998)}]{selten98}
+Selten, Reinhard.
+\newblock \enquote{Axiomatic Characterization of the Quadratic Scoring Rule.}
+\newblock \emph{Experimental Economics} 1, ~1: (1998) 43--62.
+
+\end{thebibliography}

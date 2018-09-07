@@ -1,0 +1,51 @@
+This is BibTeX, Version 0.99d (TeX Live 2017/Debian)
+Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
+The top-level auxiliary file: supplement.aux
+The style file: ChicagoReedweb.bst
+Database file #1: bib-2902.bib
+Warning--I didn't find a database entry for "savage71"
+Warning--I didn't find a database entry for "rockafellar97"
+Warning--I didn't find a database entry for "boissonnatetal10"
+Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
+You've used 1 entry,
+            3202 wiz_defined-function locations,
+            1089 strings with 12331 characters,
+and the built_in function-call counts, 895 in all, are:
+= -- 108
+> -- 11
+< -- 2
++ -- 8
+- -- 3
+* -- 43
+:= -- 100
+add.period$ -- 4
+call.type$ -- 1
+change.case$ -- 5
+chr.to.int$ -- 1
+cite$ -- 1
+duplicate$ -- 95
+empty$ -- 52
+format.name$ -- 4
+if$ -- 173
+int.to.chr$ -- 1
+int.to.str$ -- 1
+missing$ -- 8
+newline$ -- 12
+num.names$ -- 4
+pop$ -- 28
+preamble$ -- 1
+purify$ -- 5
+quote$ -- 0
+skip$ -- 59
+stack$ -- 0
+substring$ -- 48
+swap$ -- 83
+text.length$ -- 1
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 9
+warning$ -- 0
+while$ -- 6
+width$ -- 0
+write$ -- 18
+(There were 3 warnings)

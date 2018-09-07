@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2018.8.27)  7 SEP 2018 20:06
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2018.8.27)  7 SEP 2018 20:16
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -290,58 +290,19 @@ i-cal Physics []
 \tf@toc=\write3
 \openout3 = `supplement.toc'.
 
- [3]
-
-Package natbib Warning: Citation `savage71' on page 4 undefined on input line 4
-4.
-
-
-Package natbib Warning: Citation `rockafellar97' on page 4 undefined on input l
-ine 79.
-
-[4]
+ [3] [4]
 Overfull \hbox (11.59045pt too wide) detected at line 176
  $[][]$  
  []
 
-[5] [6]
-
-Package natbib Warning: Citation `boissonnatetal10' on page 7 undefined on inpu
-t line 259.
-
-
-LaTeX Warning: Reference `def:logahpoh' on page 7 undefined on input line 274.
-
-
-LaTeX Warning: Reference `eq:thiepooz' on page 7 undefined on input line 289.
-
-[7]
-
-Package natbib Warning: Citation `boissonnatetal10' on page 8 undefined on inpu
-t line 300.
-
-
+[5] [6] [7]
 Overfull \hbox (0.20241pt too wide) in paragraph at lines 363--365
 []\OT1/cmr/bx/n/12 Lemma 1.6. []\OT1/cmr/m/n/12 The only self-dual con-vex dif-
 fer-en-tiable func-tion on $\OMS/cmsy/m/n/12 P$ \OT1/cmr/m/n/12 is $\OML/cmm/m/
 it/12 F\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 x\OT1/cmr/m/n/12 ) =
  []
 
-
-Package natbib Warning: Citation `rockafellar97' on page 8 undefined on input l
-ine 368.
-
-[8]
-
-LaTeX Warning: Reference `thm:iechohng' on page 9 undefined on input line 385.
-
-
-LaTeX Warning: Reference `thm:lahpoodu' on page 9 undefined on input line 416.
-
-
-LaTeX Warning: Reference `cor:quiphaef' on page 9 undefined on input line 417.
-
-[9]
+[8] [9]
 Overfull \hbox (21.3518pt too wide) detected at line 444
  $[][]$  
  []
@@ -445,40 +406,33 @@ Overfull \hbox (82.49588pt too wide) in paragraph at lines 2169--2169
 260/isomorphicvectorspaces.pdf[] 
  []
 
-[47] (./supplement.bbl)
-
-Package natbib Warning: There were undefined citations.
-
-[48] (./supplement.aux)
-
-LaTeX Warning: There were undefined references.
-
- ) 
+[47] (./supplement.bbl) [48] (./supplement.aux) ) 
 Here is how much of TeX's memory you used:
- 3745 strings out of 492982
- 47894 string characters out of 6134896
- 117384 words of memory out of 5000000
- 7241 multiletter control sequences out of 15000+600000
+ 3746 strings out of 492982
+ 47965 string characters out of 6134896
+ 117504 words of memory out of 5000000
+ 7242 multiletter control sequences out of 15000+600000
  13087 words of font info for 51 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  48i,12n,37p,287b,214s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></us
-r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/shar
-e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texl
-ive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texlive/tex
-mf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist
-/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/
-type1/public/amsfonts/cm/cmr17.pfb></usr/share/texlive/texmf-dist/fonts/type1/p
-ublic/amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/am
-sfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/c
-m/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy
-6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb><
-/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/s
-hare/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/share/t
-exlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb></usr/share/texlive
-/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/share/texlive/
-texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on supplement.pdf (48 pages, 299091 bytes).
+</usr/share/texlive/texmf-dist
+/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts
+/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1
+/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/publi
+c/amsfonts/cm/cmmi6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfo
+nts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/
+cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.p
+fb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr
+/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/t
+exlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive
+/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/share/texlive/texmf-
+dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fo
+nts/type1/public/amsfonts/cm/cmti12.pfb></usr/share/texlive/texmf-dist/fonts/ty
+pe1/public/amsfonts/cm/cmtt10.pfb></usr/share/texlive/texmf-dist/fonts/type1/pu
+blic/amsfonts/cm/cmtt12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/a
+msfonts/symbols/msam10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/am
+sfonts/symbols/msbm10.pfb>
+Output written on supplement.pdf (48 pages, 301076 bytes).
 PDF statistics:
  228 PDF objects out of 1000 (max. 8388607)
  159 compressed objects within 2 object streams

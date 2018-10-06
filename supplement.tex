@@ -2243,11 +2243,60 @@ Lee makes the claim that $df|_{p_{e}}=T_{p_{e}}f=0$. Definition 2.20
   $U\subset\mathbb{R}$ containing $f(p_{e})$. Then 
   \begin{equation}
     \label{eq:zooxohgh}
-    u_{f(p_{e})}(g)=\left.\frac{d}{dt}\right\vert_{t=0}g(f(p_{e})+t(v_{p_{e}}f))=g'(f(p_{e}))(v_{p_{e}}f)\overset{(\ast)}{=}\left.\frac{d}{dt}\right\vert_{t=0}g\circ{}\gamma
+    u_{f(p_{e})}(g)=\left.\frac{d}{dt}\right\vert_{t=0}g(f(p_{e})+t(v_{p_{e}}f))=g'(f(p_{e}))(v_{p_{e}}f)
   \end{equation}
-  where $[\gamma]=u_{f(p_{e})}$ and equation $\overset{(\ast)}{=}$ is
-  true because of the kinematic interpretation we can give to the
-  algebraic version of a tangent vector (see page 65).
+Note that
+\begin{equation}
+  \label{eq:gaivahra}
+  g'(f(p_{e}))(v_{p_{e}}f)=\left.\frac{d}{dt}\right\vert_{t=0}g\circ{}\gamma
+\end{equation}
+where $[\gamma]=u_{f(p_{e})}$ and (\ref{eq:gaivahra}) is true because
+of the kinematic interpretation we can give to the algebraic version
+of a tangent vector (see page 65). Since $T_{p_{e}}f$ sends
+$v_{p_{e}}$ to $[f\circ{}c]$, where $v_{p_{e}}=[c]$, $T_{p_{e}}f$ and
+$df|_{p_{e}}$ are equal via the identification
+$\mathbb{R}\leftrightarrow{}T_{f(p_{e})}\mathbb{R}$ if
+\begin{equation}
+  \label{eq:aishaiza}
+  (g\circ\gamma)'(0)=(g\circ{}f\circ{}c)'(0)
+\end{equation}
+for all smooth $g:U\rightarrow\mathbb{R}$. (\ref{eq:aishaiza}) is
+equivalent to
+\begin{equation}
+  \label{eq:iegahnon}
+g'(f(p_{e}))(v_{p_{e}}f)=g'(f(p_{e}))(f\circ{}c)'(0)
+\end{equation}
+which is true if $v_{p_{e}}f=(f\circ{}c)'(0)$, but that is just the
+formula for setting up the interpretation between the algebraic and
+kinematic version of the tangent space $T_{p_{e}}M$ (see page 65). Now
+we need to show that $T_{p_{e}}f=0$ (again via the identification
+$\mathbb{R}\leftrightarrow{}T_{f(p_{e})}\mathbb{R}$). $0$ corresponds
+to $[\hat{\gamma}]$ with
+\begin{equation}
+  \label{eq:quietoph}
+  \hat{\gamma}(t)=f(p_{e})+t\cdot{}0=f(p_{e})
+\end{equation}
+a constant function for which $\hat{\gamma}'(0)=0$. The claim
+$T_{p_{e}}f=0$ is true if and only if
+\begin{equation}
+  \label{eq:aimeceij}
+  (g\circ{}f\circ{}c)'(0)=(g\circ\hat{\gamma})'(0)=0
+\end{equation}
+Since we also have
+\begin{equation}
+  \label{eq:quauluog}
+  (g\circ{}f\circ{}c)'(0)=g'(f(p_{e}))\cdot(f\circ{}c)'(0)
+\end{equation}
+by the chain rule, (\ref{eq:aimeceij}) is true if
+\begin{equation}
+  \label{eq:ohnienga}
+  (f\circ{}c)'(0)=0
+\end{equation}
+This holds because $f\circ{}c$ has an extremum at $0$ and
+\begin{equation}
+  \label{eq:fiofooci}
+  0\leq\lim_{h\rightarrow{}0^{-}}\frac{(f\circ{}c)(h)-(f\circ{}c)(0)}{h}=\lim_{h\rightarrow{}0}\frac{(f\circ{}c)(h)-(f\circ{}c)(0)}{h}=\lim_{h\rightarrow{}0^{+}}\frac{(f\circ{}c)(h)-(f\circ{}c)(0)}{h}\leq{}0
+\end{equation}
 
 \bibliographystyle{ChicagoReedweb} 
 \bibliography{bib-2902}

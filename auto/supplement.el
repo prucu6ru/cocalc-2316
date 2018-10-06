@@ -243,7 +243,15 @@
     "eq:ooghoiph"
     "eq:fiaweeba"
     "subsubsection:haixifie"
-    "eq:zooxohgh")
+    "eq:zooxohgh"
+    "eq:gaivahra"
+    "eq:aishaiza"
+    "eq:iegahnon"
+    "eq:quietoph"
+    "eq:aimeceij"
+    "eq:quauluog"
+    "eq:ohnienga"
+    "eq:fiofooci")
    (LaTeX-add-bibliographies
     "bib-2902")))
 

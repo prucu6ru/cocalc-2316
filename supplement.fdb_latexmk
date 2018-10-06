@@ -1,13 +1,13 @@
 # Fdb version 3
-["bibtex supplement"] 1536351372 "supplement.aux" "supplement.bbl" "supplement" 1536351372
+["bibtex supplement"] 1538802026 "supplement.aux" "supplement.bbl" "supplement" 1538802027
   "./ChicagoReedweb.bst" 1536340255 46097 3851d55c27b3db4bbe07017b3b52153b ""
   "bib-2902.bib" 1536351090 35792 332f9ea7bd9a12ec3a33fd55e460a082 ""
-  "supplement.aux" 1536351372 13123 9a5f4702cafac2d53aaf4be7be19803a ""
+  "supplement.aux" 1538802027 13505 dd2d1bc9dac8db0bd2614547226879d4 ""
   "supplement.bcf" 0 -1 0 ""
   (generated)
   "supplement.bbl"
   "supplement.blg"
-["pdflatex"] 1536351372 "supplement.tex" "supplement.pdf" "supplement" 1536351372
+["pdflatex"] 1538802026 "supplement.tex" "supplement.pdf" "supplement" 1538802027
   "/etc/texmf/web2c/texmf.cnf" 1535314180 475 c0e671620eb5563b2130f56340a5fde8 ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1511824771 3332 103109f5612ad95229751940c61aada0 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1480098698 1004 54797486969f23fa377b128694d548df ""
@@ -93,12 +93,12 @@
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1535345801 2700761 ac0584cc9514ab21918550a6948c4ee2 ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1535345686 4127293 e426791f7d60570cbd329fe378e4215f ""
   "october.sty" 1536340440 5014 9ced006e2e5fb6f0b50e15f08045d237 ""
-  "supplement.aux" 1536351372 13123 9a5f4702cafac2d53aaf4be7be19803a ""
-  "supplement.bbl" 1536351372 1024 6a6888bc3dcb14a4c6987e350c972e45 "bibtex supplement"
-  "supplement.tex" 1536351342 85169 0a2815728e135dd69f12acdca8d83052 ""
-  "supplement.toc" 1536351372 3935 f2eef598ba768a654e75d46153e0d1ba ""
+  "supplement.aux" 1538802027 13505 dd2d1bc9dac8db0bd2614547226879d4 ""
+  "supplement.bbl" 1538802026 1024 6a6888bc3dcb14a4c6987e350c972e45 "bibtex supplement"
+  "supplement.tex" 1538802025 86746 369593a4b6a05eb53d4a9914be97dd9b ""
+  "supplement.toc" 1538802027 4081 a573f201ca798772ba81806a541446c6 ""
   (generated)
-  "supplement.aux"
   "supplement.toc"
-  "supplement.log"
+  "supplement.aux"
   "supplement.pdf"
+  "supplement.log"

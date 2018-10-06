@@ -251,7 +251,8 @@
     "eq:aimeceij"
     "eq:quauluog"
     "eq:ohnienga"
-    "eq:fiofooci")
+    "eq:fiofooci"
+    "eq:shohcath")
    (LaTeX-add-bibliographies
     "bib-2902")))
 

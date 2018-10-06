@@ -242,6 +242,7 @@
     "subsubsection:iehaifab"
     "eq:ooghoiph"
     "eq:fiaweeba"
+    "subsubsection:haixifie"
     "eq:zooxohgh")
    (LaTeX-add-bibliographies
     "bib-2902")))

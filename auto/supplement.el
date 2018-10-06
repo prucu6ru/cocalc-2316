@@ -238,8 +238,11 @@
     "eq:naijahba"
     "subsubsection:geesohla"
     "eq:uwiusosa"
-    "eq:gaedaiqu")
+    "eq:gaedaiqu"
+    "subsubsection:iehaifab"
+    "eq:ooghoiph"
+    "eq:fiaweeba"
+    "eq:zooxohgh")
    (LaTeX-add-bibliographies
-    "bib-2902"))
- :latex)
+    "bib-2902")))
 

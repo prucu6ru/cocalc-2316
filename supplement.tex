@@ -2358,13 +2358,15 @@ $g\circ{}z$ is degenerate. Note that
 $g:\mathbb{R}^{n}\rightarrow\mathbb{R}$ and
 $z:\mathbb{R}^{n}\rightarrow\mathbb{R}^{n}$.
 
-The reduction only works if $g=f\circ{}x^{-1}$ is degenerate. I will
-show this now. Let $x(p_{e})=t_{0}$. Define
-$c_{i}(t)=x^{-1}\circ{}b_{i}$ with $b_{i}(t)=t_{0}+t\cdot{}u_{i}$,
-where $b_{i}:\mathbb{R}\rightarrow\mathbb{R}^{n}$ and $u_{i}$ is the
-usual $i$-th basis vector of $\mathbb{R}^{n}$. Because
-$c_{i}(0)=p_{e}$ there exists a $v_{p_{e}}^{(i)}$ such that
-$[c_{i}]=v_{p_{e}}^{(i)}$. On the one hand, for fixed but arbitrary $i$,
+% The reduction only works if $g=f\circ{}x^{-1}$ is degenerate.
+
+Let me show that $x(p_{e})=t_{0}$ is a critical point of
+$f\circ{}x^{-1}$. Define $c_{i}(t)=x^{-1}\circ{}b_{i}$ with
+$b_{i}(t)=t_{0}+t\cdot{}u_{i}$, where
+$b_{i}:\mathbb{R}\rightarrow\mathbb{R}^{n}$ and $u_{i}$ is the usual
+$i$-th basis vector of $\mathbb{R}^{n}$. Because $c_{i}(0)=p_{e}$
+there exists a $v_{p_{e}}^{(i)}$ such that $[c_{i}]=v_{p_{e}}^{(i)}$.
+On the one hand, for fixed but arbitrary $i$,
 \begin{equation}
   \label{eq:uvoiquie}
    \left.\frac{d}{dt}\right\vert_{t=0}(f\circ{}c_{i})=v_{p_{e}}^{(i)}\cdot{}f=df(p_{e})\cdot{}v_{p_{e}}^{(i)}=0
@@ -2376,7 +2378,25 @@ because $p_{e}$ is a critical point. On the other hand
 \end{equation}
 This means that the $i$-th component of
 $\nabla(f\circ{}x^{-1})(t_{0})$ is zero, but since $i$ was arbitrary,
-$t_{0}$ is a critical point of $f\circ{}x^{-1}$. 
+$t_{0}$ is a critical point of $f\circ{}x^{-1}$.
+
+Now let $y(p_{e})=s_{0}$. I will show that $s_{0}$ is a critical point
+of $g\circ{}z$.
+\begin{equation}
+  \label{eq:aighoowu}
+  \nabla(g\circ{}z)(s_{0})=\left.\nabla{}g\right\vert_{z(s_{0})}\cdot{}z'(s_{0})=0
+\end{equation}
+because, as shown in the previous paragraph,
+$\nabla(f\circ{}x^{-1})(t_{0})=0$.
+
+Here is Fa{\`a} di Bruno's formula for the second derivative of a
+multivariable function.
+
+\begin{equation}
+  \label{eq:phetuvao}
+  \frac{\partial^{2}y}{\partial{}x_{i}\partial{}{x_{j}}=\sum_{k}\frac{\partial{}y}{\partial{}u_{k}}\frac{\partial^{2}u_{k}}{\partial{}x_{i}\partial{}{x_{j}}+\sum_{k,l}\frac{\partial^{2}y}{\partial{}u_{k}\partial{}u_{l}}\frac{\partial{}u_{k}}{\partial{}x_{i}}\frac{\partial{}u_{l}}{\partial{}x_{j}}
+\end{equation}
+
 
 \bibliographystyle{ChicagoReedweb} 
 \bibliography{bib-2902}

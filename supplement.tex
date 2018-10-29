@@ -2314,7 +2314,7 @@ $X_{p}(Yf)=Y_{p}(Xf)$.
 The first problem is to show that the Hessian $[H_{f,p}]_{x}$ is
 invertible if and only if $[H_{f,p}]_{\hat{x}}$ is invertible, where
 $\hat{x}$ is an alternative coordinate system on $M$. I needed to
-learn a lot about the multivariabhle second-derivative test and the
+learn a lot about the multivariable second-derivative test and the
 associated linear algebra before I could tackle this question.
 Williamson and Trotter in \emph{Multivariable Mathematics} give a nice
 overview of why the second derivative provides conditions for extrema,
@@ -2338,6 +2338,45 @@ Section 3.5 about quadratic forms provides the connection between
 multivariable second derivatives and matrices, sections 5.3 and 5.4
 provide background with respect to eigenvalues and eigenvectors of
 real symmetric matrices, which Hessians are.
+
+Let $f:M\rightarrow{}\mathbb{R}$ and $x,y$ be two coordinate functions
+for a neighbourhood of $p_{e}\in{}M$. $p_{e}$ is a critical point for
+$f$, so $df$ at $p_{e}$ is zero. Now let the Hessian
+$[H_{f,p_{e}}]_{x}$ be singular. Show that $[H_{f,p_{e}}]_{y}$ is also
+singular. This establishes that nondegeneracy is well-defined
+according to the first definition (definition 2.36).
+
+To show this, I am interested in $f\circ{}y^{-1}$ and whether it is
+degenerate, given that $f\circ{}x^{-1}$ is degenerate. Since
+\begin{equation}
+  \label{eq:quaiquuo}
+f\circ{}y^{-1}=f\circ{}x^{-1}\circ{}x\circ{}y^{-1}
+\end{equation}
+the question reduces to the following: given degenerate
+$g=f\circ{}x^{-1}$ and differentiable $z=x\circ{}y^{-1}$ show that
+$g\circ{}z$ is degenerate. Note that
+$g:\mathbb{R}^{n}\rightarrow\mathbb{R}$ and
+$z:\mathbb{R}^{n}\rightarrow\mathbb{R}^{n}$.
+
+The reduction only works if $g=f\circ{}x^{-1}$ is degenerate. I will
+show this now. Let $x(p_{e})=t_{0}$. Define
+$c_{i}(t)=x^{-1}\circ{}b_{i}$ with $b_{i}(t)=t_{0}+t\cdot{}u_{i}$,
+where $b_{i}:\mathbb{R}\rightarrow\mathbb{R}^{n}$ and $u_{i}$ is the
+usual $i$-th basis vector of $\mathbb{R}^{n}$. Because
+$c_{i}(0)=p_{e}$ there exists a $v_{p_{e}}^{(i)}$ such that
+$[c_{i}]=v_{p_{e}}^{(i)}$. On the one hand, for fixed but arbitrary $i$,
+\begin{equation}
+  \label{eq:uvoiquie}
+   \left.\frac{d}{dt}\right\vert_{t=0}(f\circ{}c_{i})=v_{p_{e}}^{(i)}\cdot{}f=df(p_{e})\cdot{}v_{p_{e}}^{(i)}=0
+\end{equation}
+because $p_{e}$ is a critical point. On the other hand
+\begin{equation}
+  \label{eq:fushahch}
+    \left.\frac{d}{dt}\right\vert_{t=0}(f\circ{}c_{i})=\left.\frac{d}{dt}\right\vert_{t=0}(f\circ{}x^{-1}\circ{}b_{i})=\left.\nabla{}f\circ{}x^{-1}\right\vert_{b_{i}(0)}\cdot{}b_{i}'(0)=\left(\nabla(f\circ{}x^{-1})(t_{0})\right)\cdot{}u_{i}
+\end{equation}
+This means that the $i$-th component of
+$\nabla(f\circ{}x^{-1})(t_{0})$ is zero, but since $i$ was arbitrary,
+$t_{0}$ is a critical point of $f\circ{}x^{-1}$. 
 
 \bibliographystyle{ChicagoReedweb} 
 \bibliography{bib-2902}

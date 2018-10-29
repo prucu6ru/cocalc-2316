@@ -2402,10 +2402,10 @@ cancels because $t_{0}=z(s_{0})$ is a critical point of $g$. The
 second sum is a quadratic form (see wikipedia entry for quadratic form
 as well as Goult, page 75). We know nothing about the latter two
 factors of the second sum, but the first factor of the second sum is
-simply the entries of $[H_{f,p_{e}}]_{x}$. The LHS of
-(\ref{eq:phetuvao}) is the entries of $[H_{f,p_{e}}]_{y}$. Let us call
-$\hat{M}=[H_{f,p_{e}}]_{x}$ and $M=[H_{f,p_{e}}]_{x}$. Then the
-entries $m_{ij}$ of $M$ are
+simply the entries of $[H_{f,p_{e}}]_{x}$ at $t_{0}$. The LHS of
+(\ref{eq:phetuvao}) is the entries of $[H_{f,p_{e}}]_{y}$ at $s_{0}$.
+Let us call $\hat{M}=[H_{f,p_{e}}]_{x}$ and $M=[H_{f,p_{e}}]_{x}$.
+Then the entries $m_{ij}$ of $M$ are
 \begin{equation}
   \label{eq:ohputhij}
   m_{ij}=u_{i}^{\intercal}\hat{M}u_{j}
@@ -2430,7 +2430,7 @@ that
 \end{equation}
 or, in other words,
 \begin{equation}
-  \label{eq:aideikoh}
+  \label{eq:shuogiem}
   m_{ij}=w_{i}^{\intercal}Bw_{j}
 \end{equation}
 for some column vectors $w_{k}$ of an $n\times{}n$ matrix $W$. Because
@@ -2446,6 +2446,20 @@ symmetric matrices with real entries have the same numbers of
 positive, negative, and zero eigenvalues. If $\hat{M}$ is singular, it
 mus have a zero eigenvalue. Its congruence with $M$ means that $M$
 also has a zero eigenvalue and that means that $M$ is singular.
+
+Here is a nugget from my investigations at the end of October 2018.
+Around a putative critical point $x_{0}$ you can approximate
+\begin{equation}
+  \label{eq:hephohsh}
+  f(x)-f(x_{0})\approx{}f'(x_{0})(x-x_{0})+\frac{1}{2}f''(x_{0})(x-x_{0})^2
+\end{equation}
+
+If $f'(x_{0})$ were not zero, it would beat out the other term and at
+$x_{0}$ there would be a sign change for $f(x)-f(x_{0})$, therefore
+there could not be an extremum. Furthermore, if $f'(x_{0})=0$, it is
+clear that a positive $f''(x_{0})$ signifies a minimum and a negative
+$f''(x_{0})$ a maximum for $f$ at $x_{0}$.
+
 
 \bibliographystyle{ChicagoReedweb} 
 \bibliography{bib-2902}

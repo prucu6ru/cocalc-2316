@@ -1,5 +1,5 @@
 # Fdb version 3
-["pdflatex"] 1540786816 "supplement.tex" "supplement.pdf" "supplement" 1540786816
+["pdflatex"] 1540786884 "supplement.tex" "supplement.pdf" "supplement" 1540786885
   "/etc/texmf/web2c/texmf.cnf" 1535314180 475 c0e671620eb5563b2130f56340a5fde8 ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1511824771 3332 103109f5612ad95229751940c61aada0 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1480098698 1004 54797486969f23fa377b128694d548df ""
@@ -68,11 +68,11 @@
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1535345801 2700761 ac0584cc9514ab21918550a6948c4ee2 ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1539447059 4126370 04448162a4da151233589cc4b45c1165 ""
   "october.sty" 1536340440 5014 9ced006e2e5fb6f0b50e15f08045d237 ""
-  "supplement.aux" 1540786816 13691 7d6b3e7874e1c49303ef7382b4460724 ""
-  "supplement.tex" 1540786814 92996 120cd67a545be0b1bccf42dfc5278072 ""
-  "supplement.toc" 1540786816 0 d41d8cd98f00b204e9800998ecf8427e ""
+  "supplement.aux" 1540786885 13691 7d6b3e7874e1c49303ef7382b4460724 ""
+  "supplement.tex" 1540786884 93002 8988c162204541ba43ba4a52a5816dda ""
+  "supplement.toc" 1540786884 0 d41d8cd98f00b204e9800998ecf8427e ""
   (generated)
-  "supplement.toc"
   "supplement.log"
+  "supplement.toc"
   "supplement.aux"
   "supplement.pdf"

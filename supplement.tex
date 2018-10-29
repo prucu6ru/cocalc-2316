@@ -2397,6 +2397,55 @@ multivariable function.
   \frac{\partial^{2}y}{\partial{}x_{i}\partial{}x_{j}}=\sum_{k}\frac{\partial{}y}{\partial{}u_{k}}\frac{\partial^{2}u_{k}}{\partial{}x_{i}\partial{}x_{j}}+\sum_{k,l}\frac{\partial^{2}y}{\partial{}u_{k}\partial{}u_{l}}\frac{\partial{}u_{k}}{\partial{}x_{i}}\frac{\partial{}u_{l}}{\partial{}x_{j}}
 \end{equation}
 
+Applying this to $g\circ{}z$ at $s_{0}$, the first sum immediately
+cancels because $t_{0}=z(s_{0})$ is a critical point of $g$. The
+second sum is a quadratic form (see wikipedia entry for quadratic form
+as well as Goult, page 75). We know nothing about the latter two
+factors of the second sum, but the first factor of the second sum is
+simply the entries of $[H_{f,p_{e}}]_{x}$. The LHS of
+(\ref{eq:phetuvao}) is the entries of $[H_{f,p_{e}}]_{y}$. Let us call
+$\hat{M}=[H_{f,p_{e}}]_{x}$ and $M=[H_{f,p_{e}}]_{x}$. Then the
+entries $m_{ij}$ of $M$ are
+\begin{equation}
+  \label{eq:ohputhij}
+  m_{ij}=u_{i}^{\intercal}\hat{M}u_{j}
+\end{equation}
+for some column vectors $u_{k}$ of an $n\times{}n$ matrix $U$.
+$\hat{M}$, being the Hessian of a well-behaved function, is real and
+symmetric. It is also singular by assumption. We are trying to show
+that $M$ is singular as well. (\ref{eq:ohputhij}) implies immediately
+that $M$ is real and symmetric (it better be, since it is the Hessian
+of a well-behaved function). I put a $4\times{}4$ example in
+\texttt{schmierbuch-2018-10-28.ipynb} and, indeed, if $\hat{M}$ is
+real, symmetric, and singular, so is $M$.
+
+Now for the kill. Let $\hat{M}=P^{\intercal}BP$, i.e.\ $\hat{M}$ is
+congruent to $B=\mbox{diag}(\lambda_{1},{\ldots},\lambda_{n})$. That
+$B$ exists and reflects the eigenvalues of $\hat{M}$ is a well-known
+property of real, symmetric matrices, see Goult, page 142f. This means
+that
+\begin{equation}
+  \label{eq:aideikoh}
+  m_{ij}=(Pu_{i})^{\intercal}B(Pu_{j})
+\end{equation}
+or, in other words,
+\begin{equation}
+  \label{eq:aideikoh}
+  m_{ij}=w_{i}^{\intercal}Bw_{j}
+\end{equation}
+for some column vectors $w_{k}$ of an $n\times{}n$ matrix $W$. Because
+$B$ is a diagonal matrix, this just means that
+\begin{equation}
+  \label{eq:thaishah}
+  M=W^{\intercal}BW
+\end{equation}
+$M$ is therefore congruent to $B$, which is congruent to $\hat{M}$,
+and as matrix congruence is an equivalence relation, $M$ is congruent
+to $\hat{M}$. Sylvester's law of inertia states that two congruent
+symmetric matrices with real entries have the same numbers of
+positive, negative, and zero eigenvalues. If $\hat{M}$ is singular, it
+mus have a zero eigenvalue. Its congruence with $M$ means that $M$
+also has a zero eigenvalue and that means that $M$ is singular.
 
 \bibliographystyle{ChicagoReedweb} 
 \bibliography{bib-2902}

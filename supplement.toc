@@ -45,3 +45,4 @@
 \contentsline {subsubsection}{\numberline {17.1.12}Lemma 2.28 Partials Lemma}{47}
 \contentsline {subsubsection}{\numberline {17.1.13}Definition 2.30}{48}
 \contentsline {subsubsection}{\numberline {17.1.14}Morse Lemma 2.5.1}{48}
+\contentsline {subsubsection}{\numberline {17.1.15}Exercise 2.37}{50}

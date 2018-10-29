@@ -2292,15 +2292,52 @@ by the chain rule, (\ref{eq:aimeceij}) is true if
   \label{eq:ohnienga}
   (f\circ{}c)'(0)=0
 \end{equation}
-This holds because $f\circ{}c$ has an extremum at $0$ and
+This holds because $f\circ{}c$ has an extremum (oBdA a maximum) at $0$
+and
 \begin{equation}
   \label{eq:fiofooci}
   0\leq\lim_{h\rightarrow{}0^{-}}\frac{(f\circ{}c)(h)-(f\circ{}c)(0)}{h}=\lim_{h\rightarrow{}0}\frac{(f\circ{}c)(h)-(f\circ{}c)(0)}{h}=\notag
 \end{equation}
 \begin{equation}
   \label{eq:shohcath}
-  \lim_{h\rightarrow{}0^{+}}\frac{(f\circ{}c)(h)-(f\circ{}c)(0)}{h}\leq{}0
+  (f\circ{}c)'(0)=\lim_{h\rightarrow{}0^{+}}\frac{(f\circ{}c)(h)-(f\circ{}c)(0)}{h}\leq{}0
 \end{equation}
+
+\subsubsection{Exercise 2.37}
+\label{subsubsection:aijeiloj}
+
+This really needs elucidation from Problem 13 (which, by the way, is
+at the end of chapter 2 in the exercises section) and section 2.8,
+vector fields. Lie derivatives should be very helpful in showing
+$X_{p}(Yf)=Y_{p}(Xf)$.
+
+The first problem is to show that the Hessian $[H_{f,p}]_{x}$ is
+invertible if and only if $[H_{f,p}]_{\hat{x}}$ is invertible, where
+$\hat{x}$ is an alternative coordinate system on $M$. I needed to
+learn a lot about the multivariabhle second-derivative test and the
+associated linear algebra before I could tackle this question.
+Williamson and Trotter in \emph{Multivariable Mathematics} give a nice
+overview of why the second derivative provides conditions for extrema,
+especially
+
+\begin{equation}
+  \label{eq:iefuetho}
+  g(x)=g(0)+g'(0)x+\int_{0}^{x}(x-t)g''(t)\,dt
+\end{equation}
+
+for $g(x)=f(x_{0}+xu)$, where $u$ is an arbitrary unit vector. Use
+partial integration to see that (\ref{eq:iefuetho}) is true;
+substitute $f$ in (\ref{eq:iefuetho}) to see that $f$ has a minimum
+where $\partial^{2}f/\partial{}u^{2}$ is positive. (It is unclear to
+me how Theorem 4.4 in WT relates to Theorem 4.5 and 4.6, this would be
+worth pursuing.)
+
+The linear algebra bit is in R.J. Goult, \emph{Applied Linear
+  Algebra}, a nondescript little brown book I have on my bookshelf.
+Section 3.5 about quadratic forms provides the connection between
+multivariable second derivatives and matrices, sections 5.3 and 5.4
+provide background with respect to eigenvalues and eigenvectors of
+real symmetric matrices, which Hessians are.
 
 \bibliographystyle{ChicagoReedweb} 
 \bibliography{bib-2902}
